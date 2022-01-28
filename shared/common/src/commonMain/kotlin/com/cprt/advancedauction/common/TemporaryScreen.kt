@@ -11,7 +11,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.cprt.advancedauction.core.screen.ScreenProvider
+import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import androidx.compose.material.Text

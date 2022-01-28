@@ -1,5 +1,6 @@
 plugins {
     kotlin("multiplatform")
+    id("org.jetbrains.compose") version Versions.composeJb
     id("SharedLibraryPlugin")
 }
 
@@ -13,6 +14,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(compose.ui)
                 implementation(libs.voyager.navigator)
             }
         }

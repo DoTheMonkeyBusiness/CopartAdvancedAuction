@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.common.tool
 
-import com.cprt.advancedauction.core.screen.*
+import com.cprt.advancedauction.core.screen.tools.*
 import com.cprt.advancedauction.logIn.presentation.LogInScreenUI
 import com.cprt.advancedauction.main.presentation.MainScreenUI
 import com.cprt.advancedauction.onBoarding.presentation.OnBoardingScreenUI

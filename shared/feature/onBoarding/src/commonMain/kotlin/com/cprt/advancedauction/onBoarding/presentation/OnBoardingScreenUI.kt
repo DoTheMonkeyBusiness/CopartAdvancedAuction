@@ -2,7 +2,7 @@ package com.cprt.advancedauction.onBoarding.presentation
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import com.cprt.advancedauction.core.screen.OnBoardingScreen
+import com.cprt.advancedauction.core.screen.tools.OnBoardingScreen
 
 class OnBoardingScreenUI : OnBoardingScreen {
 
