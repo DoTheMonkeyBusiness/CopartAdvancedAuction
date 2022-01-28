@@ -1,7 +1,7 @@
 package com.cprt.advancedauction.common.koin
 
 import com.cprt.advancedauction.common.tool.AppScreenProvider
-import com.cprt.advancedauction.core.screen.ScreenProvider
+import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
