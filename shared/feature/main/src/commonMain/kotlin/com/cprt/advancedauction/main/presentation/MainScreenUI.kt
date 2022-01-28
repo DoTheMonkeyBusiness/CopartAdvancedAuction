@@ -1,0 +1,13 @@
+package com.cprt.advancedauction.main.presentation
+
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import com.cprt.advancedauction.core.screen.MainScreen
+
+class MainScreenUI : MainScreen {
+
+    @Composable
+    override fun Content() {
+        Text("MainScreenUI")
+    }
+}
