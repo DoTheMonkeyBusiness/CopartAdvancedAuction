@@ -13,8 +13,14 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "CopartAdvancedAuction"
 
-include(":android")
-include(":desktop")
+include(":androidNative:android")
 
-include(":common")
+include(":desktopNative:desktop")
 
+include(":shared:common")
+
+include(":shared:base:core")
+include(":shared:feature:logIn")
+include(":shared:feature:main")
+include(":shared:feature:onBoarding")
+include(":shared:feature:splash")
