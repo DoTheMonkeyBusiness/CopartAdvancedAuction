@@ -1,5 +1,5 @@
 [versions]
-androidgradle = "7.2.0-alpha07"
+androidgradle = "7.2.0-beta01"
 compose = "1.0.1" # https://developer.android.com/jetpack/androidx/releases/compose
 constraintlayout = "1.0.0-beta01" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
 coroutines = "1.6.0-native-mt" # https://github.com/Kotlin/kotlinx.coroutines
@@ -22,7 +22,7 @@ plugin-konfig-gradle = "com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:0
 plugin-secrets-gradle =  { module = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin", version.ref = "secrets" }
 
 androidx-appcompat = "androidx.appcompat:appcompat:1.4.1"
-androidx-core = "androidx.core:core-ktx:1.6.0"
+androidx-core = "androidx.core:core-ktx:1.7.0"
 
 compose-android-activity = "androidx.activity:activity-compose:1.4.0"
 
