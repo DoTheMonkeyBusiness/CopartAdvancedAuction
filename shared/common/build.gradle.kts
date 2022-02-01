@@ -15,9 +15,12 @@ kotlin {
         }
     }
     sourceSets {
+        @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         val commonMain by getting {
             dependencies {
                 implementation(projects.shared.base.core)
+                implementation(projects.shared.base.theme)
+
                 implementation(projects.shared.feature.logIn)
                 implementation(projects.shared.feature.main)
                 implementation(projects.shared.feature.onBoarding)
@@ -26,7 +29,7 @@ kotlin {
                 api(compose.ui)
                 api(compose.runtime)
                 api(compose.foundation)
-                api(compose.material)
+                api(compose.material3)
                 api(libs.koin.core)
 
                 implementation(libs.kotlin.coroutines.core)

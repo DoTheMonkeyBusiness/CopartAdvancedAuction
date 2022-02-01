@@ -2,8 +2,8 @@ package com.cprt.advancedauction.logIn.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.material.Button
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import com.cprt.advancedauction.core.screen.tools.LogInScreen
 import cafe.adriel.voyager.navigator.LocalNavigator
