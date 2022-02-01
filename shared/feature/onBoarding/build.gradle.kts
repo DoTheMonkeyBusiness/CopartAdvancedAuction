@@ -12,13 +12,14 @@ kotlin {
         }
     }
     sourceSets {
+        @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         val commonMain by getting {
             dependencies {
                 implementation(projects.shared.base.core)
 
                 api(compose.runtime)
                 api(compose.foundation)
-                api(compose.material)
+                api(compose.material3)
 
                 implementation(libs.voyager.navigator)
             }

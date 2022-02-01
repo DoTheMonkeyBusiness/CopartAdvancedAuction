@@ -15,17 +15,16 @@ kotlin {
         @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         val commonMain by getting {
             dependencies {
-                implementation(projects.shared.base.core)
-
-                api(compose.runtime)
-                api(compose.foundation)
-                api(compose.material3)
-
-                implementation(libs.voyager.navigator)
+                implementation(compose.ui)
+                implementation(compose.material3)
             }
         }
         val commonTest by getting
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.androidx.core)
+            }
+        }
         val androidTest by getting
         val desktopMain by getting
         val desktopTest by getting

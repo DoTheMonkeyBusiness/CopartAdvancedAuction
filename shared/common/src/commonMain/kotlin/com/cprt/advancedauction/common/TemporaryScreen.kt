@@ -1,7 +1,10 @@
 package com.cprt.advancedauction.common
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -14,7 +17,6 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
-import androidx.compose.material.Text
 
 class TemporaryScreen : Screen, KoinComponent {
 
@@ -27,22 +29,27 @@ class TemporaryScreen : Screen, KoinComponent {
             getButtons(navigator, screenProvider)
         }
 
-        Column(
+        Surface(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
+            color = MaterialTheme.colorScheme.background,
         ) {
-            buttons.forEach {
-                Button(
-                    modifier = Modifier.padding(
-                        start = 24.dp,
-                        end = 24.dp,
-                    ),
-                    onClick = it.onClick
-                ) {
-                    Text(it.text)
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                buttons.forEach {
+                    Button(
+                        modifier = Modifier.padding(
+                            start = 24.dp,
+                            end = 24.dp,
+                        ),
+                        onClick = it.onClick
+                    ) {
+                        Text(it.text)
+                    }
+                    Spacer(modifier = Modifier.height(24.dp))
                 }
-                Spacer(modifier = Modifier.height(24.dp))
             }
         }
     }
