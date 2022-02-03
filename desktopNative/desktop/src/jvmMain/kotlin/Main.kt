@@ -5,7 +5,10 @@ import com.cprt.advancedauction.common.koin.initKoin
 
 fun main() = application {
     initKoin()
-    Window(onCloseRequest = ::exitApplication) {
+    Window(
+        onCloseRequest = ::exitApplication,
+        title = "Copart advanced auction",
+    ) {
         App()
     }
 }

@@ -5,6 +5,9 @@
     <application
         android:name=".AdvancedFilterApplication"
         android:allowBackup="false"
+        android:label="Copart advanced auction"
+        android:logo="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CopartAdvancedTheme">
         <activity
