@@ -27,3 +27,5 @@ include(":shared:feature:logIn")
 include(":shared:feature:main")
 include(":shared:feature:onBoarding")
 include(":shared:feature:splash")
+
+include(":shared:network:firebase")
