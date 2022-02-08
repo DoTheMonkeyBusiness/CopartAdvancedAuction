@@ -16,10 +16,12 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(projects.shared.base.core)
+                implementation(projects.shared.base.theme)
 
-                api(compose.runtime)
-                api(compose.foundation)
-                api(compose.material3)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.ui)
 
                 implementation(libs.voyager.navigator)
             }
