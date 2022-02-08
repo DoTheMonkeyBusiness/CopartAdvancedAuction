@@ -1,4 +1,4 @@
-package icons.aaicons
+package com.cprt.advancedauction.theme.icons.aaicons
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathFillType.Companion.NonZero
@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.ImageVector.Builder
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
-import icons.AAIcons
+import com.cprt.advancedauction.theme.icons.AAIcons
 
 public val AAIcons.IcCopartLogo: ImageVector
     get() {

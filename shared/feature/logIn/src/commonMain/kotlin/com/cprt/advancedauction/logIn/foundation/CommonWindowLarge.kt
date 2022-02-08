@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cprt.advancedauction.foundation.AACard
 import com.cprt.advancedauction.foundation.spacer.HSpacer
-import icons.AAIcons
-import icons.aaicons.IcCopartLogo
+import com.cprt.advancedauction.theme.icons.AAIcons
+import com.cprt.advancedauction.theme.icons.aaicons.IcCopartLogo
 
 @Composable
 internal fun CommonWindowLarge(
