@@ -8,5 +8,7 @@ interface ScreenProvider {
 
     val onBoardingScreen: OnBoardingScreen
 
+    val registrationScreen: RegistrationScreen
+
     val splashScreen: SplashScreen
 }

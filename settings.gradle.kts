@@ -20,6 +20,7 @@ include(":desktopNative:desktop")
 include(":shared:common")
 
 include(":shared:base:core")
+include(":shared:base:foundation")
 include(":shared:base:theme")
 
 include(":shared:feature:logIn")
