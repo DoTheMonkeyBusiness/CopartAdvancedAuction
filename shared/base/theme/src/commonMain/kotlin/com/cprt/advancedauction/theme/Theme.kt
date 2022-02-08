@@ -1,5 +1,6 @@
 package com.cprt.advancedauction.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -73,9 +74,7 @@ internal expect fun AppSideEffect(
 
 @Composable
 fun AppMaterialTheme(
-//todo    https://github.com/JetBrains/compose-jb/issues/1761 remove after compose 1.1.0-alpha03 release
-    isDarkTheme: Boolean = false,
-//    isDarkTheme: Boolean = isSystemInDarkTheme(),
+    isDarkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
