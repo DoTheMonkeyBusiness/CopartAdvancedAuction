@@ -2,7 +2,6 @@ import org.jetbrains.compose.compose
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version Versions.serialization
     id("org.jetbrains.compose") version Versions.composeJb
     id("SharedLibraryPlugin")
 }
@@ -18,13 +17,19 @@ kotlin {
         @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         val commonMain by getting {
             dependencies {
+                implementation(projects.shared.base.auth)
                 implementation(projects.shared.base.core)
+                implementation(projects.shared.base.security)
                 implementation(projects.shared.base.theme)
 
                 implementation(projects.shared.feature.logIn)
                 implementation(projects.shared.feature.main)
                 implementation(projects.shared.feature.onBoarding)
                 implementation(projects.shared.feature.splash)
+
+                implementation(projects.shared.network.firebase)
+
+                implementation(projects.shared.storage.preferences)
 
                 api(compose.ui)
                 api(compose.runtime)

@@ -19,8 +19,10 @@ include(":desktopNative:desktop")
 
 include(":shared:common")
 
+include(":shared:base:auth")
 include(":shared:base:core")
 include(":shared:base:foundation")
+include(":shared:base:security")
 include(":shared:base:theme")
 
 include(":shared:feature:logIn")
@@ -29,3 +31,5 @@ include(":shared:feature:onBoarding")
 include(":shared:feature:splash")
 
 include(":shared:network:firebase")
+
+include(":shared:storage:preferences")

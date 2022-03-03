@@ -13,6 +13,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 internal fun PasswordInputField(
     modifier: Modifier = Modifier,
     label: String,
+    value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
 ) {
     var isPassword by remember { mutableStateOf(true) }
@@ -20,6 +21,7 @@ internal fun PasswordInputField(
     CredsInputField(
         modifier = modifier,
         label = label,
+        value = value,
         onValueChange = onValueChange,
         leadingIcon = {
             Icon(
