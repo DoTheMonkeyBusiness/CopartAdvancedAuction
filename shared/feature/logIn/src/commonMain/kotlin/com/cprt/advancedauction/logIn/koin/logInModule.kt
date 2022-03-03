@@ -25,7 +25,7 @@ val logInModule = module {
             loginRepository = get()
         )
     }
-    single<LoginRepository> {
+    factory<LoginRepository> {
         LoginRepositoryImpl(
             authenticator = get()
         )

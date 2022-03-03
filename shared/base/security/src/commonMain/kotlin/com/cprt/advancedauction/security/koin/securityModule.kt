@@ -5,5 +5,5 @@ import com.cprt.advancedauction.security.encryption.EncryptorAES
 import org.koin.dsl.module
 
 val securityModule = module {
-    factory<Encryptor.AES> { EncryptorAES() }
+    single<Encryptor.AES> { EncryptorAES() }
 }

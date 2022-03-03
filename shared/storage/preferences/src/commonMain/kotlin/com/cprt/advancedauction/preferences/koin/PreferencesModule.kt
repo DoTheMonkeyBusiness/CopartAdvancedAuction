@@ -16,16 +16,16 @@ val preferencesModule = module {
             encryptor = get()
         )
     }
+    single {
+        PreferencesProvider(
+            name = Constants.DEFAULT_PREFERENCES_NAME,
+        )
+    }
 
     single<AppPreferences.Default> {
         DefaultPreferences(provider = get())
     }
     single<AppPreferences.Secured> {
         SecuredPreferences(provider = get())
-    }
-    single {
-        PreferencesProvider(
-            name = Constants.DEFAULT_PREFERENCES_NAME,
-        )
     }
 }
