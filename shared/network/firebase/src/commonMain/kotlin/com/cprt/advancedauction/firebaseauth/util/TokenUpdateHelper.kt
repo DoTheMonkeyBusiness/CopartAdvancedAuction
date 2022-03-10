@@ -62,9 +62,9 @@ internal class TokenUpdateHelper(
         )
 
         return TokenInfoModel(
-            accessToken = tokenInfoEntity.idToken,
-            refreshToken = tokenInfoEntity.refreshToken,
-            expirationDate = tokenInfoEntity.expiresIn.toLong(),
+            accessToken = tokenInfoEntity.idToken ?: "",
+            refreshToken = tokenInfoEntity.refreshToken ?: "",
+            expirationDate = tokenInfoEntity.expiresIn?.toLong() ?: 0L,
         )
     }
 
@@ -77,9 +77,9 @@ internal class TokenUpdateHelper(
         )
 
         return TokenInfoModel(
-            accessToken = tokenInfoEntity.idToken,
-            refreshToken = tokenInfoEntity.refreshToken,
-            expirationDate = tokenInfoEntity.expiresIn.toLong(),
+            accessToken = tokenInfoEntity.idToken ?: "",
+            refreshToken = tokenInfoEntity.refreshToken ?: "",
+            expirationDate = tokenInfoEntity.expiresIn?.toLong() ?: 0L,
         )
     }
 }

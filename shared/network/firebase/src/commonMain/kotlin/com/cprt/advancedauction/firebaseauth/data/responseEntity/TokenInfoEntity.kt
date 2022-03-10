@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class TokenInfoEntity(
-    val idToken: String,
-    val refreshToken: String,
-    val expiresIn: String,
+    val idToken: String?,
+    val refreshToken: String?,
+    val expiresIn: String?,
 )

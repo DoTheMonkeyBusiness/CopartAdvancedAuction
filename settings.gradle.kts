@@ -22,6 +22,7 @@ include(":shared:common")
 include(":shared:base:auth")
 include(":shared:base:core")
 include(":shared:base:foundation")
+include(":shared:base:resources")
 include(":shared:base:security")
 include(":shared:base:theme")
 

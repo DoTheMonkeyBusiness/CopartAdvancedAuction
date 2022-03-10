@@ -2,6 +2,7 @@ import org.jetbrains.compose.compose
 
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization") version Versions.serialization
     id("org.jetbrains.compose") version Versions.composeJb
     id("SharedLibraryPlugin")
 }
@@ -19,6 +20,7 @@ kotlin {
             dependencies {
                 implementation(projects.shared.base.auth)
                 implementation(projects.shared.base.core)
+                implementation(projects.shared.base.resources)
                 implementation(projects.shared.base.security)
                 implementation(projects.shared.base.theme)
 
@@ -61,11 +63,7 @@ kotlin {
                 implementation(libs.sqldelight.android)
             }
         }
-        val androidTest by getting {
-            dependencies {
-                implementation("junit:junit:4.13.2")
-            }
-        }
+        val androidTest by getting
         val desktopMain by getting {
             dependencies {
                 api(compose.preview)

@@ -1,3 +1,3 @@
 package com.cprt.advancedauction.firebaseauth.exception
 
-class UpdateRefreshTokenException(message: String?) : RuntimeException()
+class UpdateRefreshTokenException(message: String?) : RuntimeException(message)

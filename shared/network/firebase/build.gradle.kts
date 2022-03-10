@@ -35,7 +35,13 @@ kotlin {
                 implementation(libs.ktor.logging)
             }
         }
-        val commonTest by getting
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.test.kotlin.junit5)
+                implementation(libs.test.junit.jupiter.params)
+                implementation(libs.test.mockk)
+            }
+        }
         val androidMain by getting {
             dependencies {
                 implementation(libs.ktor.android)

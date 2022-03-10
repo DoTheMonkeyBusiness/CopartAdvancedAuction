@@ -20,13 +20,12 @@ import kotlinx.serialization.json.Json
 internal class FirebaseClientProvider(
     private val authTokenHolder: AuthTokenHolder,
     private val authUtil: AuthUtil,
+    private val json: Json,
 ) {
 
     fun getHttpClient() = HttpClient(CIO) {
         install(ContentNegotiation) {
-            json(Json {
-                ignoreUnknownKeys = true
-            })
+            json(json)
         }
         install(Auth) {
             bearer {

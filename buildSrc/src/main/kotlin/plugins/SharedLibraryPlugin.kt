@@ -33,4 +33,12 @@ private fun Project.applyAndroidLibrarySection() = libraryExtension.run {
         minSdk = Versions.Android.minSDK
         targetSdk = Versions.Android.targetSDK
     }
+    testOptions {
+        execution = "ANDROIDX_TEST_ORCHESTRATOR"
+        unitTests.apply {
+            unitTests.all {
+                it.useJUnitPlatform()
+            }
+        }
+    }
 }

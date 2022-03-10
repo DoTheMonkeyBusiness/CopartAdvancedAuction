@@ -7,9 +7,11 @@ import androidx.compose.ui.text.input.TextFieldValue
 import cafe.adriel.voyager.core.model.coroutineScope
 import cafe.adriel.voyager.navigator.Navigator
 import com.cprt.advancedauction.auth.model.UserCredentials
+import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.screenModel.AAScreenModel
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import com.cprt.advancedauction.core.screen.useCase.ResultOf
+import com.cprt.advancedauction.firebaseauth.exception.LoginException
 import com.cprt.advancedauction.logIn.domain.model.SignInModel
 import com.cprt.advancedauction.logIn.domain.useCase.SignInUseCase
 import com.cprt.advancedauction.logIn.domain.useCase.SkipSignInUseCase
@@ -18,6 +20,7 @@ import com.cprt.advancedauction.logIn.presentation.reset.ResetPasswordScreenUI
 import kotlinx.coroutines.launch
 
 internal class LoginScreenModel(
+    private val loginErrorString: LoginErrorString,
     private val screenProvider: ScreenProvider,
     private val signInUseCase: SignInUseCase,
     private val skipSignInUseCase: SkipSignInUseCase,
@@ -75,7 +78,7 @@ internal class LoginScreenModel(
 
             state = when (val value = signInUseCase(signInModel)) {
                 is ResultOf.Success -> State.SignInSuccess
-                is ResultOf.Failure -> State.SignInError(value.throwable.message)
+                is ResultOf.Failure -> State.SignInError(getErrorMessage(value.throwable))
             }
         }
     }
@@ -87,8 +90,16 @@ internal class LoginScreenModel(
         coroutineScope.launch {
             state = when (val value = skipSignInUseCase(Unit)) {
                 is ResultOf.Success -> State.SignInSuccess
-                is ResultOf.Failure -> State.SignInError(value.throwable.message)
+                is ResultOf.Failure -> State.SignInError(getErrorMessage(value.throwable))
             }
+        }
+    }
+
+    private fun getErrorMessage(error: Throwable): String {
+        return if (error is LoginException) {
+            error.errorMessage
+        } else {
+            loginErrorString.unspecified
         }
     }
 
@@ -97,6 +108,6 @@ internal class LoginScreenModel(
         object SignInProgress : State()
         object SkipSignInProgress : State()
         object SignInSuccess : State()
-        data class SignInError(val message: String?) : State()
+        data class SignInError(val message: String) : State()
     }
 }
