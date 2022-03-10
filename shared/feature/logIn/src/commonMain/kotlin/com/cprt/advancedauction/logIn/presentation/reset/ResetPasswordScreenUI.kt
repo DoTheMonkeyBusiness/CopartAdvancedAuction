@@ -1,14 +1,13 @@
 package com.cprt.advancedauction.logIn.presentation.reset
 
-import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -26,14 +25,9 @@ internal class ResetPasswordScreenUI : Screen {
         val navigator = LocalNavigator.currentOrThrow
 
         Surface {
-            Button(
-                onClick = {
-                    navigator.pop()
-                }
+            CommonWindow(
+                navigator = navigator,
             ) {
-                Text("pop")
-            }
-            CommonWindow {
                 ResetPasswordBlock()
             }
         }
@@ -50,7 +44,8 @@ internal class ResetPasswordScreenUI : Screen {
         HSpacer(16.dp)
         EmailInputField(
             modifier = Modifier.focusRequester(focusRequester),
-            onValueChange = {}
+            value = TextFieldValue(),
+            onValueChange = {},
         )
         HSpacer(24.dp)
         AAMainButton(

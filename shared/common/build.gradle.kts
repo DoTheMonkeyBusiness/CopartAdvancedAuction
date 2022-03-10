@@ -18,13 +18,20 @@ kotlin {
         @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         val commonMain by getting {
             dependencies {
+                implementation(projects.shared.base.auth)
                 implementation(projects.shared.base.core)
+                implementation(projects.shared.base.resources)
+                implementation(projects.shared.base.security)
                 implementation(projects.shared.base.theme)
 
                 implementation(projects.shared.feature.logIn)
                 implementation(projects.shared.feature.main)
                 implementation(projects.shared.feature.onBoarding)
                 implementation(projects.shared.feature.splash)
+
+                implementation(projects.shared.network.firebase)
+
+                implementation(projects.shared.storage.preferences)
 
                 api(compose.ui)
                 api(compose.runtime)
@@ -56,11 +63,7 @@ kotlin {
                 implementation(libs.sqldelight.android)
             }
         }
-        val androidTest by getting {
-            dependencies {
-                implementation("junit:junit:4.13.2")
-            }
-        }
+        val androidTest by getting
         val desktopMain by getting {
             dependencies {
                 api(compose.preview)

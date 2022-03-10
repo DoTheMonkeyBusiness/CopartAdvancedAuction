@@ -1,12 +1,13 @@
 package com.cprt.advancedauction.logIn.presentation.registration
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusOrder
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
@@ -27,14 +28,8 @@ class RegistrationScreenUI : RegistrationScreen {
         val navigator = LocalNavigator.currentOrThrow
 
         Surface {
-            Button(
-                onClick = {
-                    navigator.pop()
-                }
-            ) {
-                Text("pop")
-            }
             CommonWindow(
+                navigator = navigator,
                 additionalContent = {
                     CommonAdditionalBlock(
                         description = "Already have an account?",
@@ -43,10 +38,11 @@ class RegistrationScreenUI : RegistrationScreen {
                             navigator.push(LogInScreenUI())
                         }
                     )
-                }
-            ) {
-                RegistrationBlock()
-            }
+                },
+                cardContent = {
+                    RegistrationBlock()
+                },
+            )
         }
     }
 
@@ -75,6 +71,7 @@ class RegistrationScreenUI : RegistrationScreen {
             modifier = Modifier.focusOrder(emailRef) {
                 next = passwordRef
             },
+            value = TextFieldValue(),
             onValueChange = {}
         )
         HSpacer(8.dp)
@@ -83,12 +80,14 @@ class RegistrationScreenUI : RegistrationScreen {
                 next = repeatPasswordRef
             },
             label = "Password",
+            value = TextFieldValue(),
             onValueChange = {},
         )
         HSpacer(8.dp)
         PasswordInputField(
             modifier = Modifier.focusOrder(repeatPasswordRef),
             label = "Repeat password",
+            value = TextFieldValue(),
             onValueChange = {},
         )
 

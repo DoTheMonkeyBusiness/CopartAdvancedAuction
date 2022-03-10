@@ -16,11 +16,15 @@ public val AAIcons.IcCopartLogo: ImageVector
         if (_icCopartLogo != null) {
             return _icCopartLogo!!
         }
-        _icCopartLogo = Builder(name = "IcCopartLogo", defaultWidth = 36.0.dp, defaultHeight =
-                42.0.dp, viewportWidth = 24.0f, viewportHeight = 28.0f).apply {
-            path(fill = SolidColor(Color(0xFF2654FF)), stroke = null, strokeLineWidth = 0.0f,
-                    strokeLineCap = Butt, strokeLineJoin = Miter, strokeLineMiter = 4.0f,
-                    pathFillType = NonZero) {
+        _icCopartLogo = Builder(
+            name = "IcCopartLogo", defaultWidth = 36.0.dp, defaultHeight =
+            42.0.dp, viewportWidth = 24.0f, viewportHeight = 28.0f
+        ).apply {
+            path(
+                fill = SolidColor(Color(0xFF2654FF)), stroke = null, strokeLineWidth = 0.0f,
+                strokeLineCap = Butt, strokeLineJoin = Miter, strokeLineMiter = 4.0f,
+                pathFillType = NonZero
+            ) {
                 moveTo(9.68f, 22.36f)
                 curveToRelative(0.773f, 0.41f, 1.652f, 0.615f, 2.636f, 0.615f)
                 curveToRelative(1.137f, 0.0f, 2.063f, -0.176f, 2.778f, -0.528f)
@@ -67,7 +71,7 @@ public val AAIcons.IcCopartLogo: ImageVector
                 close()
             }
         }
-        .build()
+            .build()
         return _icCopartLogo!!
     }
 

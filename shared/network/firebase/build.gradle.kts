@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.konan.properties.loadProperties
 
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization") version Versions.serialization
     id("SharedLibraryPlugin")
     id("com.codingfeline.buildkonfig")
 }
@@ -18,13 +19,40 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(projects.shared.base.auth)
+                implementation(projects.shared.base.core)
 
+                implementation(libs.koin.core)
+                implementation(libs.kotlin.datetime)
+                implementation(libs.kotlin.coroutines.core)
+                implementation(libs.kotlin.serialization.json)
+                implementation(libs.ktor.auth)
+                implementation(libs.ktor.contentnegotiation)
+                implementation(libs.ktor.core)
+                implementation(libs.ktor.cio)
+                implementation(libs.ktor.json)
+                implementation(libs.ktor.serialization)
+                implementation(libs.ktor.logging)
             }
         }
-        val commonTest by getting
-        val androidMain by getting
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.test.kotlin.junit5)
+                implementation(libs.test.junit.jupiter.params)
+                implementation(libs.test.mockk)
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.ktor.android)
+            }
+        }
         val androidTest by getting
-        val desktopMain by getting
+        val desktopMain by getting {
+            dependencies {
+                implementation(libs.ktor.jvm)
+            }
+        }
         val desktopTest by getting
     }
 }

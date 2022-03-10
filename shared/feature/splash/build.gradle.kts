@@ -15,14 +15,19 @@ kotlin {
         @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         val commonMain by getting {
             dependencies {
+                implementation(projects.shared.base.auth)
                 implementation(projects.shared.base.core)
                 implementation(projects.shared.base.theme)
+
+                implementation(projects.shared.network.firebase)
 
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
                 implementation(compose.ui)
 
+                implementation(libs.kotlin.coroutines.core)
+                implementation(libs.koin.core)
                 implementation(libs.voyager.navigator)
             }
         }

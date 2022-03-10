@@ -10,11 +10,13 @@ import androidx.compose.ui.text.input.TextFieldValue
 @Composable
 internal fun EmailInputField(
     modifier: Modifier = Modifier,
+    value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
 ) {
     CredsInputField(
         modifier = modifier,
         label = "Email",
+        value = value,
         onValueChange = onValueChange,
         leadingIcon = {
             Icon(
