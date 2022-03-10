@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.auth.model
+package com.cprt.advancedauction.auth.domain.model
 
 import kotlinx.datetime.Clock
 
@@ -19,7 +19,7 @@ sealed class UserLoginState(
 
     data class LoggedIn(
         override val tokenInfo: TokenInfoModel,
-        val userCredentials: UserCredentials,
+        val userCredentials: UserCredentialsModel,
     ) : UserLoginState(tokenInfo)
 
     data class Guest(

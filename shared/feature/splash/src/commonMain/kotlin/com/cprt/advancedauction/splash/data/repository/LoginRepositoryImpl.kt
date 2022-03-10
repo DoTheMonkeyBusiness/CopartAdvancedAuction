@@ -2,7 +2,7 @@ package com.cprt.advancedauction.splash.data.repository
 
 import com.cprt.advancedauction.auth.AuthTokenHolder
 import com.cprt.advancedauction.auth.Authentication
-import com.cprt.advancedauction.auth.model.UserLoginState
+import com.cprt.advancedauction.auth.domain.model.UserLoginState
 import com.cprt.advancedauction.splash.domain.repository.LoginRepository
 
 internal class LoginRepositoryImpl(

@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.auth.model
+package com.cprt.advancedauction.auth.domain.model
 
 data class TokenInfoModel(
     val accessToken: String,

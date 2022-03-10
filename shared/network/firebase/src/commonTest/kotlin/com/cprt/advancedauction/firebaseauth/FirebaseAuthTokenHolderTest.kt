@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.firebaseauth
 
-import com.cprt.advancedauction.auth.model.UserLoginState
+import com.cprt.advancedauction.auth.domain.model.UserLoginState
 import com.cprt.advancedauction.core.screen.AppPreferences
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK

@@ -1,8 +1,8 @@
 package com.cprt.advancedauction.auth
 
-import com.cprt.advancedauction.auth.model.TokenInfoModel
-import com.cprt.advancedauction.auth.model.UserCredentials
-import com.cprt.advancedauction.auth.model.UserLoginState
+import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
+import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
+import com.cprt.advancedauction.auth.domain.model.UserLoginState
 import kotlinx.coroutines.flow.StateFlow
 
 interface AuthTokenHolder {
@@ -13,7 +13,7 @@ interface AuthTokenHolder {
 
     fun setLoggedInState(
         tokenInfo: TokenInfoModel,
-        credentials: UserCredentials,
+        credentials: UserCredentialsModel,
     )
 
     fun setGuestState(tokenInfo: TokenInfoModel)

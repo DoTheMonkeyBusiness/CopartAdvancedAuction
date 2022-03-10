@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.input.TextFieldValue
 import cafe.adriel.voyager.core.model.coroutineScope
 import cafe.adriel.voyager.navigator.Navigator
-import com.cprt.advancedauction.auth.model.UserCredentials
+import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
 import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.screenModel.AAScreenModel
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
@@ -69,7 +69,7 @@ internal class LoginScreenModel(
 
         coroutineScope.launch {
             val signInModel = SignInModel(
-                userCredentials = UserCredentials(
+                userCredentials = UserCredentialsModel(
                     email = loginField.text,
                     password = passwordField.text,
                 ),

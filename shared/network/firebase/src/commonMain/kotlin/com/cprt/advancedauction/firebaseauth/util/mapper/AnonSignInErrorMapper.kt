@@ -4,7 +4,7 @@ import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.utils.Mapper
 import com.cprt.advancedauction.firebaseauth.data.responseEntity.AnonErrorCode
 
-class AnonSignInErrorMapper(
+internal class AnonSignInErrorMapper(
     private val loginErrorString: LoginErrorString
 ) : Mapper<AnonErrorCode?, String> {
 

@@ -2,8 +2,8 @@ package com.cprt.advancedauction.firebaseauth
 
 import com.cprt.advancedauction.auth.AuthTokenHolder
 import com.cprt.advancedauction.auth.Authentication
-import com.cprt.advancedauction.auth.model.TokenInfoModel
-import com.cprt.advancedauction.auth.model.UserCredentials
+import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
+import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
 import com.cprt.advancedauction.core.screen.utils.Mapper
 import com.cprt.advancedauction.firebaseauth.data.requestBodyEntity.CredentialsRequestBody
 import com.cprt.advancedauction.firebaseauth.data.responseEntity.AnonErrorCode
@@ -40,7 +40,7 @@ internal class FirebaseAuthentication(
         )
     }
 
-    override suspend fun signInWithEmail(userCredentials: UserCredentials, isGuest: Boolean) {
+    override suspend fun signInWithEmail(userCredentials: UserCredentialsModel, isGuest: Boolean) {
         val token = emailSignIn(userCredentials)
 
         authUtil.saveTokenIntoPreferences(token)
@@ -98,7 +98,7 @@ internal class FirebaseAuthentication(
         )
     }
 
-    private suspend fun emailSignIn(credentials: UserCredentials): TokenInfoModel {
+    private suspend fun emailSignIn(credentials: UserCredentialsModel): TokenInfoModel {
         val tokenInfoEntity: TokenInfoEntity = runCatching {
             signInService.load(
                 CredentialsRequestBody(

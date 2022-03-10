@@ -1,9 +1,9 @@
 package com.cprt.advancedauction.firebaseauth
 
 import com.cprt.advancedauction.auth.AuthTokenHolder
-import com.cprt.advancedauction.auth.model.TokenInfoModel
-import com.cprt.advancedauction.auth.model.UserCredentials
-import com.cprt.advancedauction.auth.model.UserLoginState
+import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
+import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
+import com.cprt.advancedauction.auth.domain.model.UserLoginState
 import com.cprt.advancedauction.core.screen.AppPreferences
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -23,7 +23,7 @@ internal class FirebaseAuthTokenHolder(
         )
     }
 
-    override fun setLoggedInState(tokenInfo: TokenInfoModel, credentials: UserCredentials) {
+    override fun setLoggedInState(tokenInfo: TokenInfoModel, credentials: UserCredentialsModel) {
         defaultPreferences.isAnonUser = false
         _userLoginState.value = UserLoginState.LoggedIn(
             tokenInfo = tokenInfo,
@@ -44,7 +44,7 @@ internal class FirebaseAuthTokenHolder(
             refreshToken = securedPreferences.refreshToken,
             expirationDate = defaultPreferences.tokenExpirationDate,
         )
-        val userCredentials = UserCredentials(
+        val userCredentials = UserCredentialsModel(
             email = securedPreferences.email,
             password = securedPreferences.password,
         )

@@ -4,7 +4,7 @@ import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.utils.Mapper
 import com.cprt.advancedauction.firebaseauth.data.responseEntity.SignInErrorCode
 
-class SignInErrorMapper(
+internal class SignInErrorMapper(
     private val loginErrorString: LoginErrorString
 ) : Mapper<SignInErrorCode?, String> {
 

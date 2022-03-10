@@ -1,8 +1,8 @@
 package com.cprt.advancedauction.firebaseauth.util
 
-import com.cprt.advancedauction.auth.model.TokenInfoModel
-import com.cprt.advancedauction.auth.model.UserCredentials
-import com.cprt.advancedauction.auth.model.UserLoginState
+import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
+import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
+import com.cprt.advancedauction.auth.domain.model.UserLoginState
 import com.cprt.advancedauction.firebaseauth.data.requestBodyEntity.CredentialsRequestBody
 import com.cprt.advancedauction.firebaseauth.data.requestBodyEntity.RefreshTokenRequestBody
 import com.cprt.advancedauction.firebaseauth.data.responseEntity.RefreshTokenInfoEntity
@@ -68,7 +68,7 @@ internal class TokenUpdateHelper(
         )
     }
 
-    private suspend fun emailSignIn(credentials: UserCredentials): TokenInfoModel {
+    private suspend fun emailSignIn(credentials: UserCredentialsModel): TokenInfoModel {
         val tokenInfoEntity: TokenInfoEntity = signInService.load(
             CredentialsRequestBody(
                 email = credentials.email,

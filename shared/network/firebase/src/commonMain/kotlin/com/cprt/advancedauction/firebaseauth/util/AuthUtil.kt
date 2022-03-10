@@ -1,7 +1,7 @@
 package com.cprt.advancedauction.firebaseauth.util
 
-import com.cprt.advancedauction.auth.model.TokenInfoModel
-import com.cprt.advancedauction.auth.model.UserCredentials
+import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
+import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
 import com.cprt.advancedauction.core.screen.AppPreferences
 import kotlinx.datetime.Clock
 
@@ -21,7 +21,7 @@ internal class AuthUtil(
     }
 
     fun saveCredentialsIntoPreferences(
-        credentials: UserCredentials,
+        credentials: UserCredentialsModel,
     ) {
         securedPreferences.email = credentials.email
         securedPreferences.password = credentials.password
