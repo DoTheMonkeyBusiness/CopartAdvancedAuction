@@ -9,7 +9,11 @@ plugins {
 }
 
 kotlin {
-    android()
+    android {
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+    }
     jvm("desktop") {
         compilations.all {
             kotlinOptions.jvmTarget = "11"

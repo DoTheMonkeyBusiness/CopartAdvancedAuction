@@ -1,10 +1,10 @@
 package plugins
 
-import Versions
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.get
 import plugins.internal.libraryExtension
+import plugins.internal.libs
 
 class SharedLibraryPlugin : Plugin<Project> {
 
@@ -27,11 +27,11 @@ private fun Project.applyGroupNVersion() {
 }
 
 private fun Project.applyAndroidLibrarySection() = libraryExtension.run {
-    compileSdk = Versions.Android.compileSDK
+    compileSdk = libs.versions.compileSdk.get().toInt()
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdk = Versions.Android.minSDK
-        targetSdk = Versions.Android.targetSDK
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
     }
     testOptions {
         execution = "ANDROIDX_TEST_ORCHESTRATOR"

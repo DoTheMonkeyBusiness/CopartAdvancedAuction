@@ -2,13 +2,17 @@ import org.jetbrains.compose.compose
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version Versions.serialization
-    id("org.jetbrains.compose") version Versions.composeJb
+    kotlin("plugin.serialization") version libs.versions.kotlin.get()
+    id("org.jetbrains.compose") version libs.versions.composeJb.get()
     id("SharedLibraryPlugin")
 }
 
 kotlin {
-    android()
+    android {
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+    }
     jvm("desktop") {
         compilations.all {
             kotlinOptions.jvmTarget = "11"

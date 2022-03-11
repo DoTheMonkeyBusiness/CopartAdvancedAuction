@@ -4,13 +4,17 @@ import org.jetbrains.kotlin.konan.properties.loadProperties
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version Versions.serialization
+    kotlin("plugin.serialization") version libs.versions.kotlin.get()
     id("SharedLibraryPlugin")
     id("com.codingfeline.buildkonfig")
 }
 
 kotlin {
-    android()
+    android {
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+    }
     jvm("desktop") {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
