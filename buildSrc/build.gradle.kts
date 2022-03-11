@@ -21,4 +21,5 @@ dependencies {
     implementation(libs.plugin.android.gradle)
     implementation(libs.plugin.kotlin.gradle)
     implementation(libs.plugin.versions.gradle)
+    implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }

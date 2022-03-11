@@ -1,11 +1,15 @@
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version Versions.composeJb
+    id("org.jetbrains.compose") version libs.versions.composeJb.get()
     id("SharedLibraryPlugin")
 }
 
 kotlin {
-    android()
+    android {
+        compilations.all {
+            kotlinOptions.jvmTarget = "11"
+        }
+    }
     jvm("desktop") {
         compilations.all {
             kotlinOptions.jvmTarget = "11"

@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.compose") version Versions.composeJb
+    id("org.jetbrains.compose") version libs.versions.composeJb.get()
     id("com.android.application")
     kotlin("android")
 }
@@ -13,11 +13,11 @@ dependencies {
 }
 
 android {
-    compileSdk = Versions.Android.compileSDK
+    compileSdk = libs.versions.compileSdk.get().toInt()
     defaultConfig {
         applicationId = "com.cprt.advancedauction.android"
-        minSdk = Versions.Android.minSDK
-        targetSdk = Versions.Android.targetSDK
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
     }

@@ -13,7 +13,6 @@ buildscript {
         classpath(libs.plugin.android.gradle)
         classpath(libs.plugin.sqldelight.gradle)
         classpath(libs.plugin.konfig.gradle)
-        classpath(libs.plugin.secrets.gradle)
     }
 }
 
