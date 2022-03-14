@@ -17,6 +17,8 @@ import com.cprt.advancedauction.logIn.domain.useCase.SignUpUseCase
 import com.cprt.advancedauction.logIn.utils.getErrorMessage
 import kotlinx.coroutines.launch
 
+private const val MINIMAL_PASSWORD_LENGTH = 6
+
 internal class RegistrationScreenModel(
     private val internalNotificationManager: InternalNotificationManager,
     private val loginErrorString: LoginErrorString,
@@ -119,7 +121,7 @@ internal class RegistrationScreenModel(
     }
 
     private fun isPasswordWeak(password: String): Boolean {
-        return password.length < 6
+        return password.length < MINIMAL_PASSWORD_LENGTH
     }
 
     private fun processEmptyFields(
