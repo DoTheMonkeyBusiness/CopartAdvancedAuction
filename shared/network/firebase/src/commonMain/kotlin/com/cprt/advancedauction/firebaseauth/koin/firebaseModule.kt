@@ -4,7 +4,7 @@ import com.cprt.advancedauction.auth.AuthTokenHolder
 import com.cprt.advancedauction.auth.Authentication
 import com.cprt.advancedauction.firebaseauth.FirebaseAuthTokenHolder
 import com.cprt.advancedauction.firebaseauth.FirebaseAuthentication
-import com.cprt.advancedauction.firebaseauth.FirebaseClientProvider
+import com.cprt.advancedauction.firebaseauth.data.FirebaseClientProvider
 import com.cprt.advancedauction.firebaseauth.data.service.AuthService
 import com.cprt.advancedauction.firebaseauth.data.service.RefreshTokenService
 import com.cprt.advancedauction.firebaseauth.data.service.SignInService

@@ -8,6 +8,10 @@ internal class LoginError : LoginErrorString {
 
     override val emailNotFound: String = "There is no user record corresponding to this email."
 
+    override val emptyEmailField: String = "Email field is empty, please enter an email address."
+
+    override val emptyPasswordField: String = "Password field is empty, please enter a password."
+
     override val invalidPassword: String = "The password is invalid."
 
     override val userDisabled: String = "The user account has been disabled by an administrator."

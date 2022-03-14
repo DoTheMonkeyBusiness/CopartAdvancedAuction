@@ -67,21 +67,22 @@ internal class LoginScreenModel(
 
     fun signIn() {
         if (state != State.Idle) return
-        state = State.SignInProgress
 
-        coroutineScope.launch {
-            val signInModel = SignInModel(
-                userCredentials = UserCredentialsModel(
-                    email = loginField.text,
-                    password = passwordField.text,
-                ),
-                isRemember = isRemember,
+        val emailText = loginField.text
+        val passwordText = passwordField.text
+        val isEmailEmpty = emailText.isEmpty()
+        val isPasswordEmpty = passwordText.isEmpty()
+
+        if (isEmailEmpty || isPasswordEmpty) {
+            processEmptyFields(
+                isEmailEmpty = isEmailEmpty,
             )
-
-            state = when (val value = signInUseCase(signInModel)) {
-                is ResultOf.Success -> State.SignInSuccess
-                is ResultOf.Failure -> State.SignInError(getErrorMessage(value.throwable))
-            }
+        } else {
+            processSignIn(
+                email = emailText,
+                password = passwordText,
+                isRememberUser = isRemember,
+            )
         }
     }
 
@@ -99,6 +100,40 @@ internal class LoginScreenModel(
 
     fun showNotification(text: String) {
         internalNotificationManager.show(text)
+    }
+
+    private fun processSignIn(
+        email: String,
+        password: String,
+        isRememberUser: Boolean,
+    ) {
+        state = State.SignInProgress
+        coroutineScope.launch {
+            val signInModel = SignInModel(
+                userCredentials = UserCredentialsModel(
+                    email = email,
+                    password = password,
+                ),
+                isRemember = isRememberUser,
+            )
+
+            state = when (val value = signInUseCase(signInModel)) {
+                is ResultOf.Success -> State.SignInSuccess
+                is ResultOf.Failure -> State.SignInError(getErrorMessage(value.throwable))
+            }
+        }
+    }
+
+    private fun processEmptyFields(
+        isEmailEmpty: Boolean,
+    ) {
+        val errorMessage = if (isEmailEmpty) {
+            loginErrorString.emptyEmailField
+        } else {
+            loginErrorString.emptyPasswordField
+        }
+
+        state = State.SignInError(errorMessage)
     }
 
     private fun getErrorMessage(error: Throwable): String {

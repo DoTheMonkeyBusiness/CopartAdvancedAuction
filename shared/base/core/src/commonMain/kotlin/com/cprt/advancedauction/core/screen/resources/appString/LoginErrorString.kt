@@ -6,6 +6,10 @@ interface LoginErrorString : AppString {
 
     val emailNotFound: String
 
+    val emptyEmailField: String
+
+    val emptyPasswordField: String
+
     val invalidPassword: String
 
     val userDisabled: String

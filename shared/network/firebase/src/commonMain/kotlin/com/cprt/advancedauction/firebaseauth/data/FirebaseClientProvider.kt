@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.firebaseauth
+package com.cprt.advancedauction.firebaseauth.data
 
 import com.cprt.advancedauction.auth.AuthTokenHolder
 import com.cprt.advancedauction.firebaseauth.data.service.RefreshTokenService
