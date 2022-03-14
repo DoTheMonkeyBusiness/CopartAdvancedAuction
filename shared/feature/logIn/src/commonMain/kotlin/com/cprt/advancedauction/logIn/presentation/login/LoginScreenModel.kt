@@ -12,12 +12,12 @@ import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.screenModel.AAScreenModel
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import com.cprt.advancedauction.core.screen.useCase.ResultOf
-import com.cprt.advancedauction.firebaseauth.exception.LoginException
 import com.cprt.advancedauction.logIn.domain.model.SignInModel
 import com.cprt.advancedauction.logIn.domain.useCase.SignInUseCase
 import com.cprt.advancedauction.logIn.domain.useCase.SkipSignInUseCase
 import com.cprt.advancedauction.logIn.presentation.registration.RegistrationScreenUI
 import com.cprt.advancedauction.logIn.presentation.reset.ResetPasswordScreenUI
+import com.cprt.advancedauction.logIn.utils.getErrorMessage
 import kotlinx.coroutines.launch
 
 internal class LoginScreenModel(
@@ -49,19 +49,18 @@ internal class LoginScreenModel(
         this.isRemember = isRemember
     }
 
-    fun setIdleState() {
-        state = State.Idle
-    }
-
     fun goRegistration(navigator: Navigator) {
+        state = State.Idle
         navigator.push(RegistrationScreenUI())
     }
 
     fun goResetPassword(navigator: Navigator) {
+        state = State.Idle
         navigator.push(ResetPasswordScreenUI())
     }
 
     fun goHome(navigator: Navigator) {
+        state = State.Idle
         navigator.replace(screenProvider.mainScreen)
     }
 
@@ -88,17 +87,22 @@ internal class LoginScreenModel(
 
     fun skipSignIn() {
         if (state != State.Idle) return
-        state = State.SkipSignInProgress
+        state = State.SignInProgress
 
         coroutineScope.launch {
             state = when (val value = skipSignInUseCase(Unit)) {
                 is ResultOf.Success -> State.SignInSuccess
-                is ResultOf.Failure -> State.SignInError(getErrorMessage(value.throwable))
+                is ResultOf.Failure -> State.SignInError(
+                    message = value
+                        .throwable
+                        .getErrorMessage(loginErrorString.unspecified)
+                )
             }
         }
     }
 
     fun showNotification(text: String) {
+        state = State.Idle
         internalNotificationManager.show(text)
     }
 
@@ -119,7 +123,11 @@ internal class LoginScreenModel(
 
             state = when (val value = signInUseCase(signInModel)) {
                 is ResultOf.Success -> State.SignInSuccess
-                is ResultOf.Failure -> State.SignInError(getErrorMessage(value.throwable))
+                is ResultOf.Failure -> State.SignInError(
+                    message = value
+                        .throwable
+                        .getErrorMessage(loginErrorString.unspecified)
+                )
             }
         }
     }
@@ -136,18 +144,9 @@ internal class LoginScreenModel(
         state = State.SignInError(errorMessage)
     }
 
-    private fun getErrorMessage(error: Throwable): String {
-        return if (error is LoginException) {
-            error.errorMessage
-        } else {
-            loginErrorString.unspecified
-        }
-    }
-
     sealed class State {
         object Idle : State()
         object SignInProgress : State()
-        object SkipSignInProgress : State()
         object SignInSuccess : State()
         data class SignInError(val message: String) : State()
     }

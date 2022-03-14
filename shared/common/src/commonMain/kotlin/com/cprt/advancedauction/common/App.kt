@@ -7,6 +7,7 @@ import cafe.adriel.voyager.navigator.Navigator
 import com.cprt.advancedauction.core.screen.tools.LocalScreenSize
 import com.cprt.advancedauction.core.screen.utils.calculateScreenSize
 import com.cprt.advancedauction.internalNotification.presentation.NotificationListUI
+import com.cprt.advancedauction.navigation.transition.AAScreenTransition
 import com.cprt.advancedauction.splash.presentation.SplashScreenUI
 import com.cprt.advancedauction.theme.AppMaterialTheme
 
@@ -17,7 +18,11 @@ fun App() {
             CompositionLocalProvider(
                 LocalScreenSize provides calculateScreenSize(maxWidth)
             ) {
-                Navigator(SplashScreenUI())
+                Navigator(SplashScreenUI()) { navigator ->
+                    AAScreenTransition(navigator = navigator) { screen ->
+                        screen.Content()
+                    }
+                }
                 NotificationListUI(
                     screenWidth = maxWidth,
                 )

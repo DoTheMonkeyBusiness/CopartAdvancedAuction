@@ -7,6 +7,12 @@ enum class SignInErrorCode {
     USER_DISABLED,
 }
 
+enum class SignUpErrorCode {
+    EMAIL_EXISTS,
+    INVALID_EMAIL,
+    TOO_MANY_ATTEMPTS_TRY_LATER,
+}
+
 enum class AnonErrorCode {
     ADMIN_ONLY_OPERATION,
     OPERATION_NOT_ALLOWED,

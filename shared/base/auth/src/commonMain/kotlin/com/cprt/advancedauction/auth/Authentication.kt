@@ -12,6 +12,10 @@ interface Authentication {
 
     suspend fun signInAnon()
 
+    suspend fun signUp(
+        userCredentials: UserCredentialsModel,
+    )
+
     suspend fun updateToken(): TokenInfoModel
 
     fun signOut()

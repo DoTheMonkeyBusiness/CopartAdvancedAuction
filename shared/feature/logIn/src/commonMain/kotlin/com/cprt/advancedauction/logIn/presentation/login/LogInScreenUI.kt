@@ -43,20 +43,17 @@ class LogInScreenUI : LogInScreen {
 
         when (val currentState = state) {
             is LoginScreenModel.State.Idle -> isNeedToShowProgress = false
-            is LoginScreenModel.State.SignInProgress,
-            is LoginScreenModel.State.SkipSignInProgress -> isNeedToShowProgress = true
+            is LoginScreenModel.State.SignInProgress -> isNeedToShowProgress = true
             is LoginScreenModel.State.SignInSuccess -> {
                 screenModel.goHome(navigator)
             }
             is LoginScreenModel.State.SignInError -> {
                 screenModel.showNotification(currentState.message)
-                screenModel.setIdleState()
             }
         }
 
         Surface {
             CommonWindow(
-                navigator = navigator,
                 isNeedToShowProgress = isNeedToShowProgress,
                 additionalContent = {
                     CommonAdditionalBlock(

@@ -25,9 +25,7 @@ internal class ResetPasswordScreenUI : Screen {
         val navigator = LocalNavigator.currentOrThrow
 
         Surface {
-            CommonWindow(
-                navigator = navigator,
-            ) {
+            CommonWindow() {
                 ResetPasswordBlock()
             }
         }
