@@ -10,6 +10,7 @@ import org.koin.dsl.module
 val logInModule = module {
     factory {
         LoginScreenModel(
+            internalNotificationManager = get(),
             loginErrorString = get(),
             screenProvider = get(),
             signInUseCase = get(),

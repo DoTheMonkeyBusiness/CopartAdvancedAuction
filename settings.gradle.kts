@@ -26,6 +26,7 @@ include(":shared:base:resources")
 include(":shared:base:security")
 include(":shared:base:theme")
 
+include(":shared:feature:internalNotification")
 include(":shared:feature:logIn")
 include(":shared:feature:main")
 include(":shared:feature:onBoarding")

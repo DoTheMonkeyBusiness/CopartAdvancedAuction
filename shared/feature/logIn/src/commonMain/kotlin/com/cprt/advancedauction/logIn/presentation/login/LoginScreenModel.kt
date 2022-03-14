@@ -7,6 +7,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import cafe.adriel.voyager.core.model.coroutineScope
 import cafe.adriel.voyager.navigator.Navigator
 import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
+import com.cprt.advancedauction.core.screen.internalNotification.InternalNotificationManager
 import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.screenModel.AAScreenModel
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
@@ -20,6 +21,7 @@ import com.cprt.advancedauction.logIn.presentation.reset.ResetPasswordScreenUI
 import kotlinx.coroutines.launch
 
 internal class LoginScreenModel(
+    private val internalNotificationManager: InternalNotificationManager,
     private val loginErrorString: LoginErrorString,
     private val screenProvider: ScreenProvider,
     private val signInUseCase: SignInUseCase,
@@ -93,6 +95,10 @@ internal class LoginScreenModel(
                 is ResultOf.Failure -> State.SignInError(getErrorMessage(value.throwable))
             }
         }
+    }
+
+    fun showNotification(text: String) {
+        internalNotificationManager.show(text)
     }
 
     private fun getErrorMessage(error: Throwable): String {
