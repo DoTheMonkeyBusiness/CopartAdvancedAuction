@@ -12,6 +12,7 @@ import com.cprt.advancedauction.firebaseauth.data.service.SignUpService
 import com.cprt.advancedauction.firebaseauth.util.AuthUtil
 import com.cprt.advancedauction.firebaseauth.util.mapper.AnonSignInErrorMapper
 import com.cprt.advancedauction.firebaseauth.util.mapper.SignInErrorMapper
+import com.cprt.advancedauction.firebaseauth.util.mapper.SignUpErrorMapper
 import org.koin.dsl.module
 
 val firebaseModule = module {
@@ -28,6 +29,11 @@ val firebaseModule = module {
     }
     factory {
         SignInErrorMapper(
+            loginErrorString = get()
+        )
+    }
+    factory {
+        SignUpErrorMapper(
             loginErrorString = get()
         )
     }
@@ -55,6 +61,7 @@ val firebaseModule = module {
             json = get(),
             anonSignInErrorMapper = get(),
             loginErrorMapper = get(),
+            signUpErrorMapper = get(),
             signInService = get(),
             signUpService = get(),
             refreshTokenService = get(),

@@ -32,7 +32,7 @@ internal class TokenUpdateHelper(
         userLoginState: UserLoginState,
     ): TokenInfoModel {
         val updateTokenException by lazy { UpdateRefreshTokenException("Can't update refresh token") }
-        val tokenInfo = runCatching {
+        return runCatching {
             getUpdatedTokensByRefreshToken(
                 refreshToken = userLoginState.tokenInfo.refreshToken,
             )
@@ -46,12 +46,6 @@ internal class TokenUpdateHelper(
                 else -> throw updateTokenException
             }
         }
-
-        return TokenInfoModel(
-            accessToken = tokenInfo.accessToken,
-            refreshToken = tokenInfo.refreshToken,
-            expirationDate = tokenInfo.expirationDate,
-        )
     }
 
     private suspend fun getUpdatedTokensByRefreshToken(

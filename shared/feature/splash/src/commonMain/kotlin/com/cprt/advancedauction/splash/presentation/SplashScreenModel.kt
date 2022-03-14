@@ -29,10 +29,12 @@ internal class SplashScreenModel(
     }
 
     fun goHome(navigator: Navigator) {
+        state = State.Idle
         navigator.replace(screenProvider.mainScreen)
     }
 
     fun goLogin(navigator: Navigator) {
+        state = State.Idle
         navigator.replace(screenProvider.logInScreen)
     }
 
