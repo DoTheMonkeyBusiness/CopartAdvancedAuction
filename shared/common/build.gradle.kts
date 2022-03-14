@@ -28,6 +28,7 @@ kotlin {
                 implementation(projects.shared.base.security)
                 implementation(projects.shared.base.theme)
 
+                implementation(projects.shared.feature.internalNotification)
                 implementation(projects.shared.feature.logIn)
                 implementation(projects.shared.feature.main)
                 implementation(projects.shared.feature.onBoarding)

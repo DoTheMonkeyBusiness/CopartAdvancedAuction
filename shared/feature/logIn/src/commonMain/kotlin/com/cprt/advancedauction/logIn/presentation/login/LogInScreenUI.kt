@@ -49,7 +49,7 @@ class LogInScreenUI : LogInScreen {
                 screenModel.goHome(navigator)
             }
             is LoginScreenModel.State.SignInError -> {
-                println("error message = ${currentState.message}")
+                screenModel.showNotification(currentState.message)
                 screenModel.setIdleState()
             }
         }
