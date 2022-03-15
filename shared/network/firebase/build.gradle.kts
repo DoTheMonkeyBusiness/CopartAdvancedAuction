@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.konan.properties.loadProperties
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version libs.versions.kotlin.get()
+    kotlin("plugin.serialization")
     id("SharedLibraryPlugin")
     id("com.codingfeline.buildkonfig")
 }
