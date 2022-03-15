@@ -21,7 +21,9 @@ targetSdk = "31"
 
 [libraries]
 plugin-android-gradle = { module = "com.android.tools.build:gradle", version.ref = "androidgradle" }
+plugin-compose-gradle = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "composeJb" }
 plugin-kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-kotlin-serialization-gradle = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 plugin-versions-gradle = "com.github.ben-manes:gradle-versions-plugin:0.41.0"
 plugin-sqldelight-gradle = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "sqldelight" }
 plugin-konfig-gradle = "com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:0.11.0"

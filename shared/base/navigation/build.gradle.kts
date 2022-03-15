@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose") version libs.versions.composeJb.get()
+    id("org.jetbrains.compose")
     id("SharedLibraryPlugin")
 }
 

@@ -2,8 +2,8 @@ import org.jetbrains.compose.compose
 
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version libs.versions.kotlin.get()
-    id("org.jetbrains.compose") version libs.versions.composeJb.get()
+    kotlin("plugin.serialization")
+    id("org.jetbrains.compose")
     id("SharedLibraryPlugin")
 }
 

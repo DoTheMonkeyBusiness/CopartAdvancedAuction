@@ -9,8 +9,10 @@ buildscript {
     }
 
     dependencies {
-        classpath(libs.plugin.kotlin.gradle)
         classpath(libs.plugin.android.gradle)
+        classpath(libs.plugin.compose.gradle)
+        classpath(libs.plugin.kotlin.gradle)
+        classpath(libs.plugin.kotlin.serialization.gradle)
         classpath(libs.plugin.sqldelight.gradle)
         classpath(libs.plugin.konfig.gradle)
     }
