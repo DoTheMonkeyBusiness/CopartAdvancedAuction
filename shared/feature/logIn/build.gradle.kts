@@ -22,6 +22,7 @@ kotlin {
                 implementation(projects.shared.base.auth)
                 implementation(projects.shared.base.core)
                 implementation(projects.shared.base.foundation)
+                implementation(projects.shared.base.navigation)
                 implementation(projects.shared.base.theme)
 
                 implementation(projects.shared.network.firebase)
@@ -32,8 +33,6 @@ kotlin {
                 implementation(compose.ui)
 
                 implementation(libs.koin.core)
-
-                implementation(libs.voyager.navigator)
             }
         }
         val commonTest by getting

@@ -51,7 +51,6 @@ kotlin {
                 implementation(libs.kotlin.serialization.json)
                 implementation(libs.kotlin.datetime)
                 implementation(libs.sqldelight.coroutines)
-                implementation(libs.voyager.navigator)
             }
         }
         val commonTest by getting {

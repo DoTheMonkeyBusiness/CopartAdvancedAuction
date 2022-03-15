@@ -22,6 +22,8 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
 
+                api(libs.voyager.navigator)
+
                 implementation(libs.voyager.transitions)
             }
         }
