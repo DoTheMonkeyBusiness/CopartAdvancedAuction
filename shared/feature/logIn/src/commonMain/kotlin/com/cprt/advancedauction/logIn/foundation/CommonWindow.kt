@@ -37,7 +37,7 @@ internal fun CommonWindow(
         }
     }
 
-    if (isNeedToShowProgress) {
-        Progress()
-    }
+    FullScreenProgress(
+        isVisible = isNeedToShowProgress
+    )
 }
