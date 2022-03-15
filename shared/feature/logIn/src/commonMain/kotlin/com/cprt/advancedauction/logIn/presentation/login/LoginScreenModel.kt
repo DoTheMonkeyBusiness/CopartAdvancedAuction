@@ -61,7 +61,7 @@ internal class LoginScreenModel(
 
     fun goHome(navigator: Navigator) {
         state = State.Idle
-        navigator.replace(screenProvider.mainScreen)
+        navigator.replaceAll(screenProvider.mainScreen)
     }
 
     fun signIn() {
