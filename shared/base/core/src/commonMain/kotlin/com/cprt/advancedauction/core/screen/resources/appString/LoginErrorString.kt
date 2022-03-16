@@ -4,6 +4,8 @@ interface LoginErrorString : AppString {
 
     val anonNotAllowed: String
 
+    val expiredOobCode: String
+
     val emailNotFound: String
 
     val emailExists: String
@@ -17,6 +19,8 @@ interface LoginErrorString : AppString {
     val invalidEmail: String
 
     val invalidPassword: String
+
+    val invalidOobCode: String
 
     val passwordsDontMatch: String
 

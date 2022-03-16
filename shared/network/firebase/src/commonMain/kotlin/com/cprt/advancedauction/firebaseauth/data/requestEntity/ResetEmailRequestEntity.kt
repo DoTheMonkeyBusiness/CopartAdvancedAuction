@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.firebaseauth.data.requestBodyEntity
+package com.cprt.advancedauction.firebaseauth.data.requestEntity
 
 import kotlinx.serialization.EncodeDefault
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -6,9 +6,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 @OptIn(ExperimentalSerializationApi::class)
-data class CredentialsRequestBody(
-    val email: String = "",
-    val password: String = "",
+data class ResetEmailRequestEntity(
+    val email: String,
     @EncodeDefault
-    val returnSecureToken: Boolean = true,
+    val requestType: String = "PASSWORD_RESET"
 )

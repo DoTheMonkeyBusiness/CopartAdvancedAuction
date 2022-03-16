@@ -6,4 +6,5 @@ interface LogInScreen : Screen
 interface MainScreen : Screen
 interface OnBoardingScreen : Screen
 interface RegistrationScreen : Screen
+interface ForgotPasswordScreen : Screen
 interface SplashScreen : Screen

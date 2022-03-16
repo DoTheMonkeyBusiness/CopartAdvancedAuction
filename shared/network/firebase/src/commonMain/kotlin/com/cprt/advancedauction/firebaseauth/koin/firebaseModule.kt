@@ -2,17 +2,19 @@ package com.cprt.advancedauction.firebaseauth.koin
 
 import com.cprt.advancedauction.auth.AuthTokenHolder
 import com.cprt.advancedauction.auth.Authentication
+import com.cprt.advancedauction.auth.PasswordRestorer
 import com.cprt.advancedauction.firebaseauth.FirebaseAuthTokenHolder
 import com.cprt.advancedauction.firebaseauth.FirebaseAuthentication
+import com.cprt.advancedauction.firebaseauth.FirebasePasswordRestorer
 import com.cprt.advancedauction.firebaseauth.data.FirebaseClientProvider
-import com.cprt.advancedauction.firebaseauth.data.service.AuthService
-import com.cprt.advancedauction.firebaseauth.data.service.RefreshTokenService
-import com.cprt.advancedauction.firebaseauth.data.service.SignInService
-import com.cprt.advancedauction.firebaseauth.data.service.SignUpService
+import com.cprt.advancedauction.firebaseauth.data.service.auth.AuthService
+import com.cprt.advancedauction.firebaseauth.data.service.auth.RefreshTokenService
+import com.cprt.advancedauction.firebaseauth.data.service.auth.SignInService
+import com.cprt.advancedauction.firebaseauth.data.service.auth.SignUpService
+import com.cprt.advancedauction.firebaseauth.data.service.passwordReset.PasswordResetService
+import com.cprt.advancedauction.firebaseauth.data.service.passwordReset.SendResetEmailService
 import com.cprt.advancedauction.firebaseauth.util.AuthUtil
-import com.cprt.advancedauction.firebaseauth.util.mapper.AnonSignInErrorMapper
-import com.cprt.advancedauction.firebaseauth.util.mapper.SignInErrorMapper
-import com.cprt.advancedauction.firebaseauth.util.mapper.SignUpErrorMapper
+import com.cprt.advancedauction.firebaseauth.util.mapper.*
 import org.koin.dsl.module
 
 val firebaseModule = module {
@@ -24,6 +26,11 @@ val firebaseModule = module {
     }
     factory {
         AnonSignInErrorMapper(
+            loginErrorString = get()
+        )
+    }
+    factory {
+        SendPasswordChangeEmailErrorMapper(
             loginErrorString = get()
         )
     }
@@ -45,6 +52,16 @@ val firebaseModule = module {
     }
     factory<AuthService.RefreshToken> {
         RefreshTokenService(client = get())
+    }
+    factory<PasswordResetService.SendResetEmail> {
+        SendResetEmailService(client = get())
+    }
+    factory<PasswordRestorer> {
+        FirebasePasswordRestorer(
+            sendResetCodeErrorMapper = get(),
+            sendResetCodeService = get(),
+            json = get(),
+        )
     }
 
     single {

@@ -13,8 +13,8 @@ import com.cprt.advancedauction.core.screen.screenModel.AAScreenModel
 import com.cprt.advancedauction.core.screen.tools.LogInScreen
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import com.cprt.advancedauction.core.screen.useCase.ResultOf
+import com.cprt.advancedauction.firebaseauth.util.getLoginErrorMessage
 import com.cprt.advancedauction.logIn.domain.useCase.SignUpUseCase
-import com.cprt.advancedauction.logIn.utils.getErrorMessage
 import kotlinx.coroutines.launch
 
 private const val MINIMAL_PASSWORD_LENGTH = 6
@@ -84,10 +84,10 @@ internal class RegistrationScreenModel(
                 )
             }
             isPasswordWeak(passwordText) -> {
-                processWeakPassword()
+                state = State.RegistrationError(loginErrorString.weakPassword)
             }
             passwordText != repeatPasswordText -> {
-                processPasswordsDontMatch()
+                state = State.RegistrationError(loginErrorString.passwordsDontMatch)
             }
             else -> {
                 processSignUp(
@@ -114,7 +114,7 @@ internal class RegistrationScreenModel(
                 is ResultOf.Failure -> State.RegistrationError(
                     message = value
                         .throwable
-                        .getErrorMessage(loginErrorString.unspecified)
+                        .getLoginErrorMessage(loginErrorString.unspecified)
                 )
             }
         }
@@ -135,14 +135,6 @@ internal class RegistrationScreenModel(
         }
 
         state = State.RegistrationError(errorMessage)
-    }
-
-    private fun processWeakPassword() {
-        state = State.RegistrationError(loginErrorString.weakPassword)
-    }
-
-    private fun processPasswordsDontMatch() {
-        state = State.RegistrationError(loginErrorString.passwordsDontMatch)
     }
 
     sealed class State {

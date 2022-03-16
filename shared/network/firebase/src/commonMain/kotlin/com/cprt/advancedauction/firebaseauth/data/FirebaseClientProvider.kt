@@ -1,8 +1,8 @@
 package com.cprt.advancedauction.firebaseauth.data
 
 import com.cprt.advancedauction.auth.AuthTokenHolder
-import com.cprt.advancedauction.firebaseauth.data.service.RefreshTokenService
-import com.cprt.advancedauction.firebaseauth.data.service.SignInService
+import com.cprt.advancedauction.firebaseauth.data.service.auth.RefreshTokenService
+import com.cprt.advancedauction.firebaseauth.data.service.auth.SignInService
 import com.cprt.advancedauction.firebaseauth.util.AuthUtil
 import com.cprt.advancedauction.firebaseauth.util.Constants.Url.IDENTITYTOOLKIT_HOST_URL
 import com.cprt.advancedauction.firebaseauth.util.Constants.Url.SECURETOKEN_HOST_URL

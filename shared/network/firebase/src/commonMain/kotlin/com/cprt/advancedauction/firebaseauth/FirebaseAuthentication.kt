@@ -4,19 +4,18 @@ import com.cprt.advancedauction.auth.AuthTokenHolder
 import com.cprt.advancedauction.auth.Authentication
 import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
 import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
-import com.cprt.advancedauction.core.screen.utils.Mapper
-import com.cprt.advancedauction.firebaseauth.data.requestBodyEntity.CredentialsRequestBody
-import com.cprt.advancedauction.firebaseauth.data.responseEntity.*
-import com.cprt.advancedauction.firebaseauth.data.service.AuthService
-import com.cprt.advancedauction.firebaseauth.exception.LoginException
+import com.cprt.advancedauction.firebaseauth.data.requestEntity.CredentialsRequestEntity
+import com.cprt.advancedauction.firebaseauth.data.responseEntity.AnonErrorCode
+import com.cprt.advancedauction.firebaseauth.data.responseEntity.SignInErrorCode
+import com.cprt.advancedauction.firebaseauth.data.responseEntity.SignUpErrorCode
+import com.cprt.advancedauction.firebaseauth.data.responseEntity.TokenInfoResponseEntity
+import com.cprt.advancedauction.firebaseauth.data.service.auth.AuthService
 import com.cprt.advancedauction.firebaseauth.util.AuthUtil
 import com.cprt.advancedauction.firebaseauth.util.TokenUpdateHelper
 import com.cprt.advancedauction.firebaseauth.util.mapper.AnonSignInErrorMapper
 import com.cprt.advancedauction.firebaseauth.util.mapper.SignInErrorMapper
 import com.cprt.advancedauction.firebaseauth.util.mapper.SignUpErrorMapper
-import io.ktor.client.plugins.*
-import io.ktor.client.statement.*
-import kotlinx.serialization.decodeFromString
+import com.cprt.advancedauction.firebaseauth.util.processLoginException
 import kotlinx.serialization.json.Json
 
 internal class FirebaseAuthentication(
@@ -97,16 +96,16 @@ internal class FirebaseAuthentication(
     private suspend fun registration(
         userCredentials: UserCredentialsModel
     ): TokenInfoModel {
-        val tokenInfoEntity: TokenInfoEntity = runCatching {
+        val tokenInfoEntity: TokenInfoResponseEntity = runCatching {
             signUpService.load(
-                CredentialsRequestBody(
+                CredentialsRequestEntity(
                     email = userCredentials.email,
                     password = userCredentials.password,
                 )
             )
         }.getOrElse {
-            processLoginException<SignUpErrorCode>(
-                exception = it,
+            it.processLoginException<SignUpErrorCode>(
+                json = json,
                 mapper = signUpErrorMapper
             )
         }
@@ -115,11 +114,11 @@ internal class FirebaseAuthentication(
     }
 
     private suspend fun anonSignIn(): TokenInfoModel {
-        val tokenInfoEntity: TokenInfoEntity = runCatching {
-            signUpService.load(CredentialsRequestBody())
+        val tokenInfoEntity: TokenInfoResponseEntity = runCatching {
+            signUpService.load(CredentialsRequestEntity())
         }.getOrElse {
-            processLoginException<AnonErrorCode>(
-                exception = it,
+            it.processLoginException<AnonErrorCode>(
+                json = json,
                 mapper = anonSignInErrorMapper
             )
         }
@@ -128,16 +127,16 @@ internal class FirebaseAuthentication(
     }
 
     private suspend fun emailSignIn(credentials: UserCredentialsModel): TokenInfoModel {
-        val tokenInfoEntity: TokenInfoEntity = runCatching {
+        val tokenInfoEntity: TokenInfoResponseEntity = runCatching {
             signInService.load(
-                CredentialsRequestBody(
+                CredentialsRequestEntity(
                     email = credentials.email,
                     password = credentials.password
                 )
             )
         }.getOrElse {
-            processLoginException<SignInErrorCode>(
-                exception = it,
+            it.processLoginException<SignInErrorCode>(
+                json = json,
                 mapper = loginErrorMapper
             )
         }
@@ -146,30 +145,10 @@ internal class FirebaseAuthentication(
     }
 
     private fun getTokenInfoModel(
-        tokenInfoEntity: TokenInfoEntity
+        tokenInfoEntity: TokenInfoResponseEntity
     ): TokenInfoModel = TokenInfoModel(
         accessToken = tokenInfoEntity.idToken ?: "",
         refreshToken = tokenInfoEntity.refreshToken ?: "",
         expirationDate = tokenInfoEntity.expiresIn?.toLong() ?: 0L,
     )
-
-    private suspend inline fun <reified T> processLoginException(
-        exception: Throwable,
-        mapper: Mapper<T?, String>
-    ): Nothing {
-        if (exception !is ClientRequestException) {
-            throw exception
-        }
-
-        val exceptionResponse = exception.response
-        val exceptionEntity = json.decodeFromString<LoginErrorEntity<T>>(
-            exceptionResponse.bodyAsText()
-        )
-        val loginErrorMessage = mapper.map(exceptionEntity.error?.errorCode)
-
-        throw LoginException(
-            exceptionMessage = exception.message,
-            errorMessage = loginErrorMessage
-        )
-    }
 }
