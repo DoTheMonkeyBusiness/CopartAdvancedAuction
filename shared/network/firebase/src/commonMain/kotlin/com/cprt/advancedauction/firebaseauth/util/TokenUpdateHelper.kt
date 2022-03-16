@@ -3,11 +3,11 @@ package com.cprt.advancedauction.firebaseauth.util
 import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
 import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
 import com.cprt.advancedauction.auth.domain.model.UserLoginState
-import com.cprt.advancedauction.firebaseauth.data.requestBodyEntity.CredentialsRequestBody
-import com.cprt.advancedauction.firebaseauth.data.requestBodyEntity.RefreshTokenRequestBody
-import com.cprt.advancedauction.firebaseauth.data.responseEntity.RefreshTokenInfoEntity
-import com.cprt.advancedauction.firebaseauth.data.responseEntity.TokenInfoEntity
-import com.cprt.advancedauction.firebaseauth.data.service.AuthService
+import com.cprt.advancedauction.firebaseauth.data.requestEntity.CredentialsRequestEntity
+import com.cprt.advancedauction.firebaseauth.data.requestEntity.RefreshTokenRequestEntity
+import com.cprt.advancedauction.firebaseauth.data.responseEntity.RefreshTokenResponseEntity
+import com.cprt.advancedauction.firebaseauth.data.responseEntity.TokenInfoResponseEntity
+import com.cprt.advancedauction.firebaseauth.data.service.auth.AuthService
 import com.cprt.advancedauction.firebaseauth.exception.UpdateRefreshTokenException
 
 internal class TokenUpdateHelper(
@@ -51,8 +51,8 @@ internal class TokenUpdateHelper(
     private suspend fun getUpdatedTokensByRefreshToken(
         refreshToken: String,
     ): TokenInfoModel {
-        val tokenInfoEntity: RefreshTokenInfoEntity = refreshTokenService.load(
-            RefreshTokenRequestBody(refreshToken = refreshToken)
+        val tokenInfoEntity: RefreshTokenResponseEntity = refreshTokenService.load(
+            RefreshTokenRequestEntity(refreshToken = refreshToken)
         )
 
         return TokenInfoModel(
@@ -63,8 +63,8 @@ internal class TokenUpdateHelper(
     }
 
     private suspend fun emailSignIn(credentials: UserCredentialsModel): TokenInfoModel {
-        val tokenInfoEntity: TokenInfoEntity = signInService.load(
-            CredentialsRequestBody(
+        val tokenInfoEntity: TokenInfoResponseEntity = signInService.load(
+            CredentialsRequestEntity(
                 email = credentials.email,
                 password = credentials.password
             )

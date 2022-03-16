@@ -33,12 +33,8 @@ class RegistrationScreenUI : RegistrationScreen {
         when (val currentState = state) {
             is RegistrationScreenModel.State.Idle -> isNeedToShowProgress = false
             is RegistrationScreenModel.State.RegistrationProgress -> isNeedToShowProgress = true
-            is RegistrationScreenModel.State.RegistrationSuccess -> {
-                screenModel.goHome(navigator)
-            }
-            is RegistrationScreenModel.State.RegistrationError -> {
-                screenModel.showNotification(currentState.message)
-            }
+            is RegistrationScreenModel.State.RegistrationSuccess -> screenModel.goHome(navigator)
+            is RegistrationScreenModel.State.RegistrationError -> screenModel.showNotification(currentState.message)
         }
 
         Surface {

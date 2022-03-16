@@ -10,5 +10,7 @@ interface ScreenProvider {
 
     val registrationScreen: RegistrationScreen
 
+    val forgotPasswordScreen: ForgotPasswordScreen
+
     val splashScreen: SplashScreen
 }

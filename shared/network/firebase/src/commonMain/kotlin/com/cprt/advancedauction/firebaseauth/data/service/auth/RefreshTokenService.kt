@@ -1,8 +1,8 @@
-package com.cprt.advancedauction.firebaseauth.data.service
+package com.cprt.advancedauction.firebaseauth.data.service.auth
 
 import com.cprt.advancedauction.FirebaseNetworkConfig
-import com.cprt.advancedauction.firebaseauth.data.requestBodyEntity.RefreshTokenRequestBody
-import com.cprt.advancedauction.firebaseauth.data.responseEntity.RefreshTokenInfoEntity
+import com.cprt.advancedauction.firebaseauth.data.requestEntity.RefreshTokenRequestEntity
+import com.cprt.advancedauction.firebaseauth.data.responseEntity.RefreshTokenResponseEntity
 import com.cprt.advancedauction.firebaseauth.util.Constants
 import com.cprt.advancedauction.firebaseauth.util.Constants.Url.SECURETOKEN_HOST_URL
 import com.cprt.advancedauction.firebaseauth.util.Constants.Version.V1
@@ -15,7 +15,7 @@ internal class RefreshTokenService(
     private val client: HttpClient,
 ) : AuthService.RefreshToken {
 
-    override suspend fun load(param: RefreshTokenRequestBody): RefreshTokenInfoEntity = client.post("$V1/token") {
+    override suspend fun load(param: RefreshTokenRequestEntity): RefreshTokenResponseEntity = client.post("$V1/token") {
         url.protocol = URLProtocol.HTTPS
         host = SECURETOKEN_HOST_URL
         parameter(Constants.API_KEY, FirebaseNetworkConfig.FIREBASE_API_KEY)

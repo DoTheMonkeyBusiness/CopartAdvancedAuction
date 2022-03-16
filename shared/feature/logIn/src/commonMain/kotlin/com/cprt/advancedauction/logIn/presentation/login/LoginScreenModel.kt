@@ -12,12 +12,11 @@ import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.screenModel.AAScreenModel
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import com.cprt.advancedauction.core.screen.useCase.ResultOf
+import com.cprt.advancedauction.firebaseauth.util.getLoginErrorMessage
 import com.cprt.advancedauction.logIn.domain.model.SignInModel
 import com.cprt.advancedauction.logIn.domain.useCase.SignInUseCase
 import com.cprt.advancedauction.logIn.domain.useCase.SkipSignInUseCase
 import com.cprt.advancedauction.logIn.presentation.registration.RegistrationScreenUI
-import com.cprt.advancedauction.logIn.presentation.reset.ResetPasswordScreenUI
-import com.cprt.advancedauction.logIn.utils.getErrorMessage
 import kotlinx.coroutines.launch
 
 internal class LoginScreenModel(
@@ -56,7 +55,7 @@ internal class LoginScreenModel(
 
     fun goResetPassword(navigator: Navigator) {
         state = State.Idle
-        navigator.push(ResetPasswordScreenUI())
+        navigator.push(screenProvider.forgotPasswordScreen)
     }
 
     fun goHome(navigator: Navigator) {
@@ -95,7 +94,7 @@ internal class LoginScreenModel(
                 is ResultOf.Failure -> State.SignInError(
                     message = value
                         .throwable
-                        .getErrorMessage(loginErrorString.unspecified)
+                        .getLoginErrorMessage(loginErrorString.unspecified)
                 )
             }
         }
@@ -126,7 +125,7 @@ internal class LoginScreenModel(
                 is ResultOf.Failure -> State.SignInError(
                     message = value
                         .throwable
-                        .getErrorMessage(loginErrorString.unspecified)
+                        .getLoginErrorMessage(loginErrorString.unspecified)
                 )
             }
         }
