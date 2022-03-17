@@ -11,8 +11,8 @@ import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.screenModel.AAScreenModel
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import com.cprt.advancedauction.core.screen.useCase.ResultOf
-import com.cprt.advancedauction.firebaseauth.util.getLoginErrorMessage
 import com.cprt.advancedauction.logIn.domain.useCase.SendResetEmailUseCase
+import com.cprt.advancedauction.logIn.utils.getLoginErrorMessage
 import com.cprt.advancedauction.navigation.util.replaceIfPossible
 import kotlinx.coroutines.launch
 
@@ -43,16 +43,9 @@ internal class ForgotPasswordScreenModel(
     fun onSendEmail() {
         if (state != State.Idle) return
 
-        val emailText = emailField.text
-        val isEmailEmpty = emailText.isEmpty()
-
-        if (isEmailEmpty) {
-            state = State.SendEmailError(loginErrorString.emptyEmailField)
-        } else {
-            sendEmail(
-                emailText = emailText,
-            )
-        }
+        sendEmail(
+            emailText = emailField.text,
+        )
     }
 
     private fun sendEmail(

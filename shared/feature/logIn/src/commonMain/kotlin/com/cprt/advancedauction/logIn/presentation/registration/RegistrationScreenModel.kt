@@ -6,18 +6,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.input.TextFieldValue
 import cafe.adriel.voyager.core.model.coroutineScope
 import cafe.adriel.voyager.navigator.Navigator
-import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
 import com.cprt.advancedauction.core.screen.internalNotification.InternalNotificationManager
 import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.screenModel.AAScreenModel
 import com.cprt.advancedauction.core.screen.tools.LogInScreen
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import com.cprt.advancedauction.core.screen.useCase.ResultOf
-import com.cprt.advancedauction.firebaseauth.util.getLoginErrorMessage
+import com.cprt.advancedauction.logIn.domain.model.SignUpModel
 import com.cprt.advancedauction.logIn.domain.useCase.SignUpUseCase
+import com.cprt.advancedauction.logIn.utils.getLoginErrorMessage
 import kotlinx.coroutines.launch
-
-private const val MINIMAL_PASSWORD_LENGTH = 6
 
 internal class RegistrationScreenModel(
     private val internalNotificationManager: InternalNotificationManager,
@@ -69,47 +67,27 @@ internal class RegistrationScreenModel(
     fun singUp() {
         if (state != State.Idle) return
 
-        val emailText = loginField.text
-        val passwordText = passwordField.text
-        val repeatPasswordText = repeatPasswordField.text
-        val isEmailEmpty = emailText.isEmpty()
-        val isPasswordEmpty = passwordText.isEmpty()
-        val isRepeatPasswordEmpty = repeatPasswordText.isEmpty()
-
-        when {
-            isEmailEmpty || isPasswordEmpty || isRepeatPasswordEmpty -> {
-                processEmptyFields(
-                    isEmailEmpty = isEmailEmpty,
-                    isPasswordEmpty = isPasswordEmpty,
-                )
-            }
-            isPasswordWeak(passwordText) -> {
-                state = State.RegistrationError(loginErrorString.weakPassword)
-            }
-            passwordText != repeatPasswordText -> {
-                state = State.RegistrationError(loginErrorString.passwordsDontMatch)
-            }
-            else -> {
-                processSignUp(
-                    email = emailText,
-                    password = passwordText,
-                )
-            }
-        }
+        processSignUp(
+            email = loginField.text,
+            password = passwordField.text,
+            repeatPasswordText = repeatPasswordField.text,
+        )
     }
 
     private fun processSignUp(
         email: String,
-        password: String
+        password: String,
+        repeatPasswordText: String,
     ) {
         state = State.RegistrationProgress
         coroutineScope.launch {
-            val credentialsModel = UserCredentialsModel(
+            val signUpModel = SignUpModel(
                 email = email,
                 password = password,
+                repeatedPassword = repeatPasswordText,
             )
 
-            state = when (val value = signUpUseCase(credentialsModel)) {
+            state = when (val value = signUpUseCase(signUpModel)) {
                 is ResultOf.Success -> State.RegistrationSuccess
                 is ResultOf.Failure -> State.RegistrationError(
                     message = value
@@ -118,23 +96,6 @@ internal class RegistrationScreenModel(
                 )
             }
         }
-    }
-
-    private fun isPasswordWeak(password: String): Boolean {
-        return password.length < MINIMAL_PASSWORD_LENGTH
-    }
-
-    private fun processEmptyFields(
-        isEmailEmpty: Boolean,
-        isPasswordEmpty: Boolean,
-    ) {
-        val errorMessage = when {
-            isEmailEmpty -> loginErrorString.emptyEmailField
-            isPasswordEmpty -> loginErrorString.emptyPasswordField
-            else -> loginErrorString.emptyRepeatPasswordField
-        }
-
-        state = State.RegistrationError(errorMessage)
     }
 
     sealed class State {

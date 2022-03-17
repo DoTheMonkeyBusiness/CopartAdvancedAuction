@@ -6,11 +6,11 @@ internal class LoginError : LoginErrorString {
 
     override val anonNotAllowed: String = "Anonymous user sign-in is disabled."
 
-    override val expiredOobCode: String = "Your reset code has been expired, please send one more."
-
     override val emailNotFound: String = "There is no user record corresponding to this email."
 
     override val emailExists: String = "The email address is already in use by another account."
+
+    override val emailIsNotValid: String = "The email address is not valid, please double-check it."
 
     override val emptyEmailField: String = "Email field is empty, please enter an email address."
 
@@ -21,8 +21,6 @@ internal class LoginError : LoginErrorString {
     override val invalidEmail: String = "Email is not valid, please recheck it."
 
     override val invalidPassword: String = "The password is invalid."
-
-    override val invalidOobCode: String = "Password reset code is invalid, please double-check it."
 
     override val passwordsDontMatch: String = "Passwords do not match, please check the entered data."
 
