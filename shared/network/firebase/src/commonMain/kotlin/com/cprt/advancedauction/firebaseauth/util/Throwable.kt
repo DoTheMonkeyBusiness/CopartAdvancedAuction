@@ -8,14 +8,6 @@ import io.ktor.client.statement.*
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
-fun Throwable.getLoginErrorMessage(defaultMessage: String): String {
-    return if (this is LoginException) {
-        errorMessage
-    } else {
-        defaultMessage
-    }
-}
-
 internal suspend inline fun <reified T> Throwable.processLoginException(
     json: Json,
     mapper: Mapper<T?, String>

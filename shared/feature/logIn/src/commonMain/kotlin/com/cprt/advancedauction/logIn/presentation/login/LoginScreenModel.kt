@@ -12,11 +12,11 @@ import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screen.screenModel.AAScreenModel
 import com.cprt.advancedauction.core.screen.tools.ScreenProvider
 import com.cprt.advancedauction.core.screen.useCase.ResultOf
-import com.cprt.advancedauction.firebaseauth.util.getLoginErrorMessage
 import com.cprt.advancedauction.logIn.domain.model.SignInModel
 import com.cprt.advancedauction.logIn.domain.useCase.SignInUseCase
 import com.cprt.advancedauction.logIn.domain.useCase.SkipSignInUseCase
 import com.cprt.advancedauction.logIn.presentation.registration.RegistrationScreenUI
+import com.cprt.advancedauction.logIn.utils.getLoginErrorMessage
 import kotlinx.coroutines.launch
 
 internal class LoginScreenModel(
@@ -66,28 +66,17 @@ internal class LoginScreenModel(
     fun signIn() {
         if (state != State.Idle) return
 
-        val emailText = loginField.text
-        val passwordText = passwordField.text
-        val isEmailEmpty = emailText.isEmpty()
-        val isPasswordEmpty = passwordText.isEmpty()
-
-        if (isEmailEmpty || isPasswordEmpty) {
-            processEmptyFields(
-                isEmailEmpty = isEmailEmpty,
-            )
-        } else {
-            processSignIn(
-                email = emailText,
-                password = passwordText,
-                isRememberUser = isRemember,
-            )
-        }
+        processSignIn(
+            email = loginField.text,
+            password = passwordField.text,
+            isRememberUser = isRemember,
+        )
     }
 
     fun skipSignIn() {
         if (state != State.Idle) return
-        state = State.SignInProgress
 
+        state = State.SignInProgress
         coroutineScope.launch {
             state = when (val value = skipSignInUseCase(Unit)) {
                 is ResultOf.Success -> State.SignInSuccess
@@ -129,18 +118,6 @@ internal class LoginScreenModel(
                 )
             }
         }
-    }
-
-    private fun processEmptyFields(
-        isEmailEmpty: Boolean,
-    ) {
-        val errorMessage = if (isEmailEmpty) {
-            loginErrorString.emptyEmailField
-        } else {
-            loginErrorString.emptyPasswordField
-        }
-
-        state = State.SignInError(errorMessage)
     }
 
     sealed class State {

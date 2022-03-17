@@ -11,6 +11,9 @@ import com.cprt.advancedauction.logIn.domain.useCase.SkipSignInUseCase
 import com.cprt.advancedauction.logIn.presentation.login.LoginScreenModel
 import com.cprt.advancedauction.logIn.presentation.registration.RegistrationScreenModel
 import com.cprt.advancedauction.logIn.presentation.resetPassword.ForgotPasswordScreenModel
+import com.cprt.advancedauction.logIn.utils.EmailValidator
+import com.cprt.advancedauction.logIn.utils.SignInPasswordValidator
+import com.cprt.advancedauction.logIn.utils.SignUpPasswordValidator
 import org.koin.dsl.module
 
 val logInModule = module {
@@ -41,22 +44,43 @@ val logInModule = module {
     }
     factory {
         SendResetEmailUseCase(
+            emailValidator = get(),
             passwordResetRepository = get(),
         )
     }
     factory {
         SignInUseCase(
-            loginRepository = get()
+            emailValidator = get(),
+            loginRepository = get(),
+            signInPasswordValidator = get(),
         )
     }
     factory {
         SignUpUseCase(
-            loginRepository = get()
+            emailValidator = get(),
+            loginRepository = get(),
+            signUpPasswordValidator = get()
         )
     }
     factory {
         SkipSignInUseCase(
             loginRepository = get()
+        )
+    }
+
+    factory {
+        EmailValidator(
+            loginErrorString = get()
+        )
+    }
+    factory {
+        SignInPasswordValidator(
+            loginErrorString = get()
+        )
+    }
+    factory {
+        SignUpPasswordValidator(
+            loginErrorString = get()
         )
     }
 
