@@ -106,6 +106,7 @@ internal class FirebaseAuthenticationTest {
         firebaseAuthentication.signUp(credentials)
 
         verify(exactly = 1) { authTokenHolder.setLoggedInState(tokenInfoModel, credentials) }
+        verify(exactly = 1) { authUtil.saveCredentialsIntoPreferences(credentials) }
         verify(exactly = 1) { authUtil.saveTokenIntoPreferences(tokenInfoModel) }
     }
 
