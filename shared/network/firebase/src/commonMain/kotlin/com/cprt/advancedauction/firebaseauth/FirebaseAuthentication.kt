@@ -41,15 +41,18 @@ internal class FirebaseAuthentication(
     override suspend fun signInWithEmail(userCredentials: UserCredentialsModel, isGuest: Boolean) {
         val token = emailSignIn(userCredentials)
 
-        authUtil.saveTokenIntoPreferences(token)
+        authUtil.saveTokenIntoPreferences(
+            tokenInfo = token
+        )
 
         if (isGuest) {
             authTokenHolder.setGuestState(
                 tokenInfo = token
             )
         } else {
-            authUtil.saveCredentialsIntoPreferences(userCredentials)
-
+            authUtil.saveCredentialsIntoPreferences(
+                credentials = userCredentials
+            )
             authTokenHolder.setLoggedInState(
                 tokenInfo = token,
                 credentials = userCredentials
@@ -75,6 +78,9 @@ internal class FirebaseAuthentication(
 
         authUtil.saveTokenIntoPreferences(
             tokenInfo = token,
+        )
+        authUtil.saveCredentialsIntoPreferences(
+            credentials = userCredentials
         )
         authTokenHolder.setLoggedInState(
             tokenInfo = token,
