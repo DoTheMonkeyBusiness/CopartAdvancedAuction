@@ -27,11 +27,14 @@ include(":shared:base:resources")
 include(":shared:base:security")
 include(":shared:base:theme")
 
+include(":shared:feature:accountSettings")
+include(":shared:feature:favouriteItems")
 include(":shared:feature:internalNotification")
 include(":shared:feature:logIn")
 include(":shared:feature:main")
 include(":shared:feature:onBoarding")
 include(":shared:feature:splash")
+include(":shared:feature:vehicleFinder")
 
 include(":shared:network:firebase")
 

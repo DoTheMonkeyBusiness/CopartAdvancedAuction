@@ -16,13 +16,18 @@ kotlin {
         }
     }
     sourceSets {
+        @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         val commonMain by getting {
             dependencies {
+                implementation(projects.shared.base.foundation)
+
                 implementation(compose.ui)
                 implementation(compose.runtime)
                 implementation(compose.foundation)
+                implementation(compose.material3)
 
                 api(libs.voyager.navigator)
+                api(libs.voyager.tab.navigator)
 
                 implementation(libs.voyager.transitions)
             }

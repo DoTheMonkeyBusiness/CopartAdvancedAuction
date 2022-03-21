@@ -19,19 +19,13 @@ kotlin {
         @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         val commonMain by getting {
             dependencies {
-                implementation(projects.shared.base.core)
-                implementation(projects.shared.base.foundation)
                 implementation(projects.shared.base.navigation)
+                implementation(projects.shared.base.theme)
 
-                implementation(projects.shared.feature.accountSettings)
-                implementation(projects.shared.feature.favouriteItems)
-                implementation(projects.shared.feature.vehicleFinder)
-
-                api(compose.runtime)
-                api(compose.foundation)
-                api(compose.material3)
-
-                implementation(libs.voyager.navigator)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.ui)
             }
         }
         val commonTest by getting
