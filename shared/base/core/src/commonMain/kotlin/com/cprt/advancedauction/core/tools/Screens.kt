@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.core.screen.tools
+package com.cprt.advancedauction.core.tools
 
 import cafe.adriel.voyager.core.screen.Screen
 

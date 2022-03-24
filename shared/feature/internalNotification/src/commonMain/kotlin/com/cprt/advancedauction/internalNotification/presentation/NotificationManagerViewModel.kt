@@ -1,7 +1,7 @@
 package com.cprt.advancedauction.internalNotification.presentation
 
 import androidx.compose.runtime.mutableStateListOf
-import com.cprt.advancedauction.core.screen.internalNotification.InternalNotificationManager
+import com.cprt.advancedauction.core.internalNotification.InternalNotificationManager
 import com.cprt.advancedauction.internalNotification.domain.model.NotificationModel
 import com.cprt.advancedauction.internalNotification.util.VisibilityHolder
 import kotlinx.coroutines.CoroutineScope

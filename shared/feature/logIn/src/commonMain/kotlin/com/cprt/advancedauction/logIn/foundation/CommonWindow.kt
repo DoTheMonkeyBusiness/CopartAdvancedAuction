@@ -4,8 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.cprt.advancedauction.core.screen.ScreenSize
-import com.cprt.advancedauction.core.screen.tools.LocalScreenSize
+import com.cprt.advancedauction.core.ScreenSize
+import com.cprt.advancedauction.core.tools.LocalScreenSize
 import com.cprt.advancedauction.foundation.AATopBar
 
 @Composable

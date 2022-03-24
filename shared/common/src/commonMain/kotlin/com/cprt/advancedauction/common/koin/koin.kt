@@ -1,7 +1,7 @@
 package com.cprt.advancedauction.common.koin
 
 import com.cprt.advancedauction.common.tool.AppScreenProvider
-import com.cprt.advancedauction.core.screen.tools.ScreenProvider
+import com.cprt.advancedauction.core.tools.ScreenProvider
 import com.cprt.advancedauction.firebaseauth.koin.firebaseModule
 import com.cprt.advancedauction.internalNotification.koin.internalNotificationModule
 import com.cprt.advancedauction.logIn.koin.logInModule

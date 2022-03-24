@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.cprt.advancedauction.core.screen.koin.get
+import com.cprt.advancedauction.core.koin.get
 import com.cprt.advancedauction.foundation.spacer.HSpacer
 import com.cprt.advancedauction.internalNotification.foundation.NotificationUI
 

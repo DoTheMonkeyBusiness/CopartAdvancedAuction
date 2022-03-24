@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.common.tool
 
-import com.cprt.advancedauction.core.screen.tools.*
+import com.cprt.advancedauction.core.tools.*
 import com.cprt.advancedauction.logIn.presentation.login.LogInScreenUI
 import com.cprt.advancedauction.logIn.presentation.registration.RegistrationScreenUI
 import com.cprt.advancedauction.logIn.presentation.resetPassword.ForgotPasswordScreenUI

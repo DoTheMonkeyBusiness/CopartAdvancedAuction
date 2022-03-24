@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.firebaseauth.data.service.auth
 
-import com.cprt.advancedauction.core.screen.service.ApiService
+import com.cprt.advancedauction.core.service.ApiService
 import com.cprt.advancedauction.firebaseauth.data.requestEntity.CredentialsRequestEntity
 import com.cprt.advancedauction.firebaseauth.data.requestEntity.RefreshTokenRequestEntity
 import com.cprt.advancedauction.firebaseauth.data.responseEntity.RefreshTokenResponseEntity

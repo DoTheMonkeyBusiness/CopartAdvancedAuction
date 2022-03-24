@@ -2,7 +2,7 @@ package com.cprt.advancedauction.firebaseauth.util
 
 import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
 import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
-import com.cprt.advancedauction.core.screen.AppPreferences
+import com.cprt.advancedauction.core.AppPreferences
 import kotlinx.datetime.Clock
 
 internal class AuthUtil(

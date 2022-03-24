@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.recources.appString
 
-import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
+import com.cprt.advancedauction.core.resources.appString.LoginErrorString
 
 internal class LoginError : LoginErrorString {
 

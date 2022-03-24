@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.core.screen.screenModel
+package com.cprt.advancedauction.core.screenModel
 
 import cafe.adriel.voyager.core.model.ScreenModel
 import kotlinx.coroutines.flow.MutableStateFlow

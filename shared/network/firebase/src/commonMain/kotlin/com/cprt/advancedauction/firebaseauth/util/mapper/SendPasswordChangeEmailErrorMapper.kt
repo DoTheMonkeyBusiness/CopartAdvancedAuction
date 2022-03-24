@@ -1,7 +1,7 @@
 package com.cprt.advancedauction.firebaseauth.util.mapper
 
-import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
-import com.cprt.advancedauction.core.screen.utils.Mapper
+import com.cprt.advancedauction.core.resources.appString.LoginErrorString
+import com.cprt.advancedauction.core.utils.Mapper
 import com.cprt.advancedauction.firebaseauth.data.responseEntity.SendPasswordErrorCode
 
 internal class SendPasswordChangeEmailErrorMapper(

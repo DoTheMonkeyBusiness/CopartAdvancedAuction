@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.logIn.domain.useCase
 
-import com.cprt.advancedauction.core.screen.useCase.UseCase
+import com.cprt.advancedauction.core.useCase.UseCase
 import com.cprt.advancedauction.logIn.domain.repository.LoginRepository
 import kotlinx.coroutines.Dispatchers
 

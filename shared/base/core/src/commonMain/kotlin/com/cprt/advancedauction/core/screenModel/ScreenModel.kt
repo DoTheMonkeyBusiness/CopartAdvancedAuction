@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.core.screen.screenModel
+package com.cprt.advancedauction.core.screenModel
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember

@@ -16,8 +16,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.cprt.advancedauction.core.screen.ScreenSize
-import com.cprt.advancedauction.core.screen.tools.LocalScreenSize
+import com.cprt.advancedauction.core.ScreenSize
+import com.cprt.advancedauction.core.tools.LocalScreenSize
 
 @Composable
 fun BoxScope.AABottomNavigation(

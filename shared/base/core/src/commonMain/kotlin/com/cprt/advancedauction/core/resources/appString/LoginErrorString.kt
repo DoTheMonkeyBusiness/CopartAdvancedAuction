@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.core.screen.resources.appString
+package com.cprt.advancedauction.core.resources.appString
 
 interface LoginErrorString : AppString {
 

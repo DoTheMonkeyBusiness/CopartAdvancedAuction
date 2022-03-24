@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.core.screen.internalNotification
+package com.cprt.advancedauction.core.internalNotification
 
 interface InternalNotificationManager {
 

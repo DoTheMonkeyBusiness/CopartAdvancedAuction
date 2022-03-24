@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.core.screen.useCase
+package com.cprt.advancedauction.core.useCase
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext

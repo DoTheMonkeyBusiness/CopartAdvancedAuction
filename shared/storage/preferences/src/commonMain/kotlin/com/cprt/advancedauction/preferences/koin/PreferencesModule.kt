@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.preferences.koin
 
-import com.cprt.advancedauction.core.screen.AppPreferences
+import com.cprt.advancedauction.core.AppPreferences
 import com.cprt.advancedauction.preferences.DefaultPreferences
 import com.cprt.advancedauction.preferences.SecuredPreferences
 import com.cprt.advancedauction.preferences.provider.PreferencesProvider
