@@ -4,7 +4,7 @@ import com.cprt.advancedauction.auth.AuthTokenHolder
 import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
 import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
 import com.cprt.advancedauction.auth.domain.model.UserLoginState
-import com.cprt.advancedauction.core.screen.AppPreferences
+import com.cprt.advancedauction.core.AppPreferences
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

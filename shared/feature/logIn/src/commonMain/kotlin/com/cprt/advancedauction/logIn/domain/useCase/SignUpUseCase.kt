@@ -1,8 +1,8 @@
 package com.cprt.advancedauction.logIn.domain.useCase
 
 import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
-import com.cprt.advancedauction.core.screen.useCase.UseCase
-import com.cprt.advancedauction.core.screen.utils.withoutWhiteSpaces
+import com.cprt.advancedauction.core.useCase.UseCase
+import com.cprt.advancedauction.core.utils.withoutWhiteSpaces
 import com.cprt.advancedauction.logIn.domain.model.SignUpModel
 import com.cprt.advancedauction.logIn.domain.repository.LoginRepository
 import com.cprt.advancedauction.logIn.utils.EmailValidator

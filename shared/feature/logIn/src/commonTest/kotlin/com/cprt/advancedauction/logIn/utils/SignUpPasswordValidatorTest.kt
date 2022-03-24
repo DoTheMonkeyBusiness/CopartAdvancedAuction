@@ -1,5 +1,5 @@
-import com.cprt.advancedauction.core.screen.exception.ValidationException
-import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
+import com.cprt.advancedauction.core.exception.ValidationException
+import com.cprt.advancedauction.core.resources.appString.LoginErrorString
 import com.cprt.advancedauction.logIn.utils.SignUpPasswordValidator
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.RelaxedMockK

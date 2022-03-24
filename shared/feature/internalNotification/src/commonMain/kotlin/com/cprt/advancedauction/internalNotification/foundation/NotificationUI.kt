@@ -19,8 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.cprt.advancedauction.core.screen.ScreenSize
-import com.cprt.advancedauction.core.screen.tools.LocalScreenSize
+import com.cprt.advancedauction.core.ScreenSize
+import com.cprt.advancedauction.core.tools.LocalScreenSize
 import com.cprt.advancedauction.foundation.AACard
 import com.cprt.advancedauction.internalNotification.domain.model.NotificationModel
 import com.cprt.advancedauction.internalNotification.util.VisibilityHolder

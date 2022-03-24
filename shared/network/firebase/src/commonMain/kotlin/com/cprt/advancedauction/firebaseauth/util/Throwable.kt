@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.firebaseauth.util
 
-import com.cprt.advancedauction.core.screen.utils.Mapper
+import com.cprt.advancedauction.core.utils.Mapper
 import com.cprt.advancedauction.firebaseauth.data.responseEntity.LoginErrorEntity
 import com.cprt.advancedauction.firebaseauth.exception.LoginException
 import io.ktor.client.plugins.*

@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.splash.domain.useCase
 
-import com.cprt.advancedauction.core.screen.useCase.UseCase
+import com.cprt.advancedauction.core.useCase.UseCase
 import com.cprt.advancedauction.splash.domain.repository.LoginRepository
 import kotlinx.coroutines.Dispatchers
 

@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.core.screen.koin
+package com.cprt.advancedauction.core.koin
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember

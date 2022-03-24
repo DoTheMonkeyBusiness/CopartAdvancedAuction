@@ -1,7 +1,7 @@
 package com.cprt.advancedauction.logIn.domain.useCase
 
-import com.cprt.advancedauction.core.screen.useCase.UseCase
-import com.cprt.advancedauction.core.screen.utils.withoutWhiteSpaces
+import com.cprt.advancedauction.core.useCase.UseCase
+import com.cprt.advancedauction.core.utils.withoutWhiteSpaces
 import com.cprt.advancedauction.logIn.domain.repository.PasswordResetRepository
 import com.cprt.advancedauction.logIn.utils.EmailValidator
 import kotlinx.coroutines.Dispatchers

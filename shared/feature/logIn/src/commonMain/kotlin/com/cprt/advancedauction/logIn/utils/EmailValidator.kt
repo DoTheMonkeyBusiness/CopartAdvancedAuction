@@ -1,8 +1,8 @@
 package com.cprt.advancedauction.logIn.utils
 
-import com.cprt.advancedauction.core.screen.exception.ValidationException
-import com.cprt.advancedauction.core.screen.resources.appString.LoginErrorString
-import com.cprt.advancedauction.core.screen.utils.Validator
+import com.cprt.advancedauction.core.exception.ValidationException
+import com.cprt.advancedauction.core.resources.appString.LoginErrorString
+import com.cprt.advancedauction.core.utils.Validator
 
 internal class EmailValidator(
     private val loginErrorString: LoginErrorString,

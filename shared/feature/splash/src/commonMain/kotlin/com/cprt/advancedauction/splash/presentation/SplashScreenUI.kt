@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.cprt.advancedauction.core.screen.screenModel.getScreenModel
-import com.cprt.advancedauction.core.screen.tools.SplashScreen
+import com.cprt.advancedauction.core.screenModel.getScreenModel
+import com.cprt.advancedauction.core.tools.SplashScreen
 import com.cprt.advancedauction.theme.icons.AAIcons
 import com.cprt.advancedauction.theme.icons.aaicons.IcCopartLogo
 

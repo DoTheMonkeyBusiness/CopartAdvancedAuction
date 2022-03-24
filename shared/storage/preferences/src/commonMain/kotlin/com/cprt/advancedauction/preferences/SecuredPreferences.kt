@@ -1,6 +1,6 @@
 package com.cprt.advancedauction.preferences
 
-import com.cprt.advancedauction.core.screen.AppPreferences
+import com.cprt.advancedauction.core.AppPreferences
 import com.cprt.advancedauction.preferences.provider.SecuredPreferencesProvider
 import com.cprt.advancedauction.preferences.provider.stringProperty
 
