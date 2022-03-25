@@ -5,13 +5,11 @@ import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStoreFile
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 
-internal actual open class PreferencesProvider
-actual constructor(name: String) : KoinComponent {
-
-    private val context: Context by inject()
+internal actual open class DefaultPreferencesProvider(
+    name: String,
+    context: Context,
+) : PreferencesProvider.Default {
 
     private val store = PreferenceDataStoreFactory.create {
         context.preferencesDataStoreFile(name)
@@ -31,21 +29,21 @@ actual constructor(name: String) : KoinComponent {
         }
     }
 
-    actual open fun getInt(name: String): Int? = get(intPreferencesKey(name))
-    actual open fun setInt(name: String, value: Int) = set(intPreferencesKey(name), value)
+    actual override fun getInt(name: String): Int? = get(intPreferencesKey(name))
+    actual override fun setInt(name: String, value: Int) = set(intPreferencesKey(name), value)
 
-    actual open fun getLong(name: String): Long? = get(longPreferencesKey(name))
-    actual open fun setLong(name: String, value: Long) = set(longPreferencesKey(name), value)
+    actual override fun getLong(name: String): Long? = get(longPreferencesKey(name))
+    actual override fun setLong(name: String, value: Long) = set(longPreferencesKey(name), value)
 
-    actual open fun getFloat(name: String): Float? = get(floatPreferencesKey(name))
-    actual open fun setFloat(name: String, value: Float) = set(floatPreferencesKey(name), value)
+    actual override fun getFloat(name: String): Float? = get(floatPreferencesKey(name))
+    actual override fun setFloat(name: String, value: Float) = set(floatPreferencesKey(name), value)
 
-    actual open fun getDouble(name: String): Double? = get(doublePreferencesKey(name))
-    actual open fun setDouble(name: String, value: Double) = set(doublePreferencesKey(name), value)
+    actual override fun getDouble(name: String): Double? = get(doublePreferencesKey(name))
+    actual override fun setDouble(name: String, value: Double) = set(doublePreferencesKey(name), value)
 
-    actual open fun getBoolean(name: String): Boolean? = get(booleanPreferencesKey(name))
-    actual open fun setBoolean(name: String, value: Boolean) = set(booleanPreferencesKey(name), value)
+    actual override fun getBoolean(name: String): Boolean? = get(booleanPreferencesKey(name))
+    actual override fun setBoolean(name: String, value: Boolean) = set(booleanPreferencesKey(name), value)
 
-    actual open fun getString(name: String): String? = get(stringPreferencesKey(name))
-    actual open fun setString(name: String, value: String) = set(stringPreferencesKey(name), value)
+    actual override fun getString(name: String): String? = get(stringPreferencesKey(name))
+    actual override fun setString(name: String, value: String) = set(stringPreferencesKey(name), value)
 }

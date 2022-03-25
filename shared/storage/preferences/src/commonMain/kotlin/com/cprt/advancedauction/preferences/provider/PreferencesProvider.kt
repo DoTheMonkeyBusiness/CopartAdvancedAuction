@@ -1,45 +1,26 @@
 package com.cprt.advancedauction.preferences.provider
 
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
+internal sealed interface PreferencesProvider {
 
-internal expect open class PreferencesProvider(name: String) {
-    open fun getInt(name: String): Int?
-    open fun setInt(name: String, value: Int)
+    interface Default : PreferencesProvider
 
-    open fun getLong(name: String): Long?
-    open fun setLong(name: String, value: Long)
+    interface Secured : PreferencesProvider
 
-    open fun getFloat(name: String): Float?
-    open fun setFloat(name: String, value: Float)
+    fun getInt(name: String): Int?
+    fun setInt(name: String, value: Int)
 
-    open fun getDouble(name: String): Double?
-    open fun setDouble(name: String, value: Double)
+    fun getLong(name: String): Long?
+    fun setLong(name: String, value: Long)
 
-    open fun getBoolean(name: String): Boolean?
-    open fun setBoolean(name: String, value: Boolean)
+    fun getFloat(name: String): Float?
+    fun setFloat(name: String, value: Float)
 
-    open fun getString(name: String): String?
-    open fun setString(name: String, value: String)
-}
+    fun getDouble(name: String): Double?
+    fun setDouble(name: String, value: Double)
 
-internal fun PreferencesProvider.intProperty(default: Int) = Property(default, ::getInt, ::setInt)
+    fun getBoolean(name: String): Boolean?
+    fun setBoolean(name: String, value: Boolean)
 
-internal fun PreferencesProvider.longProperty(default: Long) = Property(default, ::getLong, ::setLong)
-
-internal fun PreferencesProvider.floatProperty(default: Float) = Property(default, ::getFloat, ::setFloat)
-
-internal fun PreferencesProvider.doubleProperty(default: Double) = Property(default, ::getDouble, ::setDouble)
-
-internal fun PreferencesProvider.booleanProperty(default: Boolean) = Property(default, ::getBoolean, ::setBoolean)
-
-internal fun PreferencesProvider.stringProperty(default: String) = Property(default, ::getString, ::setString)
-
-internal class Property<Type> constructor(
-    private val default: Type,
-    private val reader: (name: String) -> Type?,
-    private val writer: (name: String, value: Type) -> Unit
-) : ReadWriteProperty<Any?, Type> {
-    override fun getValue(thisRef: Any?, property: KProperty<*>): Type = reader(property.name) ?: default
-    override fun setValue(thisRef: Any?, property: KProperty<*>, value: Type) = writer(property.name, value)
+    fun getString(name: String): String?
+    fun setString(name: String, value: String)
 }

@@ -3,9 +3,9 @@ package com.cprt.advancedauction.preferences.provider
 import com.cprt.advancedauction.security.encryption.Encryptor
 
 internal class SecuredPreferencesProvider(
-    name: String,
+    private val preferences: PreferencesProvider.Default,
     private val encryptor: Encryptor.AES
-) : PreferencesProvider(name) {
+) : PreferencesProvider.Secured {
 
     override fun getInt(name: String): Int? = getString(name)?.toInt()
 
@@ -28,7 +28,7 @@ internal class SecuredPreferencesProvider(
     override fun setBoolean(name: String, value: Boolean) = setString(name, value.toString())
 
     override fun getString(name: String): String? {
-        val value = super.getString(name)
+        val value = preferences.getString(name)
 
         return if (value.isNullOrEmpty()) "" else encryptor.decrypt(value)
     }
@@ -36,6 +36,6 @@ internal class SecuredPreferencesProvider(
     override fun setString(name: String, value: String) {
         val encryptedValue = encryptor.encrypt(value)
 
-        super.setString(name, encryptedValue)
+        preferences.setString(name, encryptedValue)
     }
 }

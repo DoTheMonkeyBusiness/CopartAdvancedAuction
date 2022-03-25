@@ -5,20 +5,16 @@ import com.cprt.advancedauction.preferences.DefaultPreferences
 import com.cprt.advancedauction.preferences.SecuredPreferences
 import com.cprt.advancedauction.preferences.provider.PreferencesProvider
 import com.cprt.advancedauction.preferences.provider.SecuredPreferencesProvider
-import com.cprt.advancedauction.preferences.util.Constants
-import com.cprt.advancedauction.preferences.util.Constants.SECURED_PREFERENCES_NAME
+import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val preferencesModule = module {
-    single {
+    includes(additionalModule)
+
+    single<PreferencesProvider.Secured> {
         SecuredPreferencesProvider(
-            name = SECURED_PREFERENCES_NAME,
+            preferences = get(),
             encryptor = get()
-        )
-    }
-    single {
-        PreferencesProvider(
-            name = Constants.DEFAULT_PREFERENCES_NAME,
         )
     }
 
@@ -29,3 +25,5 @@ val preferencesModule = module {
         SecuredPreferences(provider = get())
     }
 }
+
+internal expect val additionalModule: Module
