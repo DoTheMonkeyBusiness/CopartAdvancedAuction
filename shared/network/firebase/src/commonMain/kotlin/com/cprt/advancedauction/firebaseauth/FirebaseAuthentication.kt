@@ -94,9 +94,11 @@ internal class FirebaseAuthentication(
         )
     }
 
-    override fun signOut() {
+    override suspend fun signOut() {
         authUtil.clearTokens()
         authUtil.clearCredentials()
+
+        signInAnon()
     }
 
     private suspend fun registration(

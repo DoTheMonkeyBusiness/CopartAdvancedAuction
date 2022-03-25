@@ -5,6 +5,7 @@ import com.cprt.advancedauction.core.tools.ScreenProvider
 import com.cprt.advancedauction.firebaseauth.koin.firebaseModule
 import com.cprt.advancedauction.internalNotification.koin.internalNotificationModule
 import com.cprt.advancedauction.logIn.koin.logInModule
+import com.cprt.advancedauction.main.koin.mainModule
 import com.cprt.advancedauction.preferences.koin.preferencesModule
 import com.cprt.advancedauction.recources.koin.resourcesModule
 import com.cprt.advancedauction.security.koin.securityModule
@@ -23,6 +24,7 @@ fun initKoin(
         firebaseModule,
         internalNotificationModule,
         logInModule,
+        mainModule,
         preferencesModule,
         resourcesModule,
         securityModule,
