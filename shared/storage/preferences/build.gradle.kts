@@ -27,6 +27,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.androidx.datastore)
+                implementation(libs.koin.android)
             }
         }
         val androidTest by getting
