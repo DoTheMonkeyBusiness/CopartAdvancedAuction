@@ -18,5 +18,5 @@ interface Authentication {
 
     suspend fun updateToken(): TokenInfoModel
 
-    fun signOut()
+    suspend fun signOut()
 }
