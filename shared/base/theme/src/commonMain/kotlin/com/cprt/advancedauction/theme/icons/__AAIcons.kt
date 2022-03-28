@@ -1,6 +1,7 @@
 package com.cprt.advancedauction.theme.icons
 
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.cprt.advancedauction.theme.icons.aaicons.IcAuction
 import com.cprt.advancedauction.theme.icons.aaicons.IcCopartLogo
 import com.cprt.advancedauction.theme.icons.aaicons.OutlineArrowBack
 import kotlin.collections.List as ____KtList
@@ -14,6 +15,6 @@ public val AAIcons.AllAssets: ____KtList<ImageVector>
         if (__AllAssets != null) {
             return __AllAssets!!
         }
-        __AllAssets = listOf(OutlineArrowBack, IcCopartLogo)
+        __AllAssets = listOf(IcAuction, OutlineArrowBack, IcCopartLogo)
         return __AllAssets!!
     }
