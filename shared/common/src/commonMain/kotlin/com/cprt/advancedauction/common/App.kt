@@ -23,9 +23,7 @@ fun App() {
                         screen.Content()
                     }
                 }
-                NotificationListUI(
-                    screenWidth = maxWidth,
-                )
+                NotificationListUI()
             }
         }
     }
