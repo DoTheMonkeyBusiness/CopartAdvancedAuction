@@ -11,10 +11,10 @@ import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import com.cprt.advancedauction.accountSettings.presentation.AccountSettingsTab
 import com.cprt.advancedauction.core.screenModel.getScreenModel
-import com.cprt.advancedauction.core.tools.MainScreen
 import com.cprt.advancedauction.favouriteItems.presentation.FavouriteItemsTab
 import com.cprt.advancedauction.foundation.bottomNavigation.AABottomNavigation
 import com.cprt.advancedauction.navigation.tab.TabNavigationItem
+import com.cprt.advancedauction.navigation.tools.MainScreen
 import com.cprt.advancedauction.vehicleFinder.presentation.VehicleFinderTab
 
 class MainScreenUI : MainScreen {

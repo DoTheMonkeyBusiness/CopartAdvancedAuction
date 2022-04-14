@@ -22,7 +22,7 @@ kotlin {
                 implementation(projects.shared.base.core)
                 implementation(projects.shared.base.foundation)
                 implementation(projects.shared.base.navigation)
-                implementation(projects.shared.base.theme)
+                implementation(projects.shared.base.resources)
 
                 implementation(compose.runtime)
                 implementation(compose.foundation)

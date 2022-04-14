@@ -20,12 +20,11 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(projects.shared.base.core)
+                implementation(projects.shared.base.navigation)
 
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material3)
-
-                implementation(libs.voyager.navigator)
             }
         }
         val commonTest by getting

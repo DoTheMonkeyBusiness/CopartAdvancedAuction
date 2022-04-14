@@ -7,8 +7,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cprt.advancedauction.foundation.spacer.HSpacer
-import com.cprt.advancedauction.theme.icons.AAIcons
-import com.cprt.advancedauction.theme.icons.aaicons.IcCopartLogo
+import com.cprt.advancedauction.recources.icons.AAIcons
+import com.cprt.advancedauction.recources.icons.aaicons.IcCopartLogo
 
 @Composable
 internal fun CommonWindowMedium(

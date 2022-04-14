@@ -24,6 +24,7 @@ kotlin {
             dependencies {
                 implementation(projects.shared.base.auth)
                 implementation(projects.shared.base.core)
+                implementation(projects.shared.base.dateTime)
                 implementation(projects.shared.base.navigation)
                 implementation(projects.shared.base.resources)
                 implementation(projects.shared.base.security)
@@ -34,6 +35,7 @@ kotlin {
                 implementation(projects.shared.feature.main)
                 implementation(projects.shared.feature.onBoarding)
                 implementation(projects.shared.feature.splash)
+                implementation(projects.shared.feature.vehicleSearch)
 
                 implementation(projects.shared.network.firebase)
 
@@ -49,7 +51,6 @@ kotlin {
                 implementation(libs.logger.kermit)
                 implementation(libs.ktor.core)
                 implementation(libs.kotlin.serialization.json)
-                implementation(libs.kotlin.datetime)
                 implementation(libs.sqldelight.coroutines)
             }
         }

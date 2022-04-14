@@ -21,7 +21,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.cprt.advancedauction.core.screenModel.getScreenModel
-import com.cprt.advancedauction.core.tools.LogInScreen
+import com.cprt.advancedauction.navigation.tools.LogInScreen
 import com.cprt.advancedauction.foundation.button.AAMainButton
 import com.cprt.advancedauction.foundation.button.AAOutlinedButton
 import com.cprt.advancedauction.foundation.checkbox.AACheckBoxWithText

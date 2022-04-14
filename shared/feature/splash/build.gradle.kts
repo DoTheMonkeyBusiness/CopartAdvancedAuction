@@ -21,8 +21,9 @@ kotlin {
             dependencies {
                 implementation(projects.shared.base.auth)
                 implementation(projects.shared.base.core)
+                implementation(projects.shared.base.dateTime)
                 implementation(projects.shared.base.navigation)
-                implementation(projects.shared.base.theme)
+                implementation(projects.shared.base.resources)
 
                 implementation(projects.shared.network.firebase)
 

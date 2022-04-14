@@ -3,21 +3,20 @@ package com.cprt.advancedauction.firebaseauth.util
 import com.cprt.advancedauction.auth.domain.model.TokenInfoModel
 import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
 import com.cprt.advancedauction.core.AppPreferences
-import kotlinx.datetime.Clock
+import com.cprt.advancedauction.dateTime.DateTime
 
 internal class AuthUtil(
     private val defaultPreferences: AppPreferences.Default,
     private val securedPreferences: AppPreferences.Secured,
+    private val dateTime: DateTime,
 ) {
 
     fun saveTokenIntoPreferences(
         tokenInfo: TokenInfoModel,
     ) {
-        val clock = Clock.System.now()
-
         securedPreferences.accessToken = tokenInfo.accessToken
         securedPreferences.accessToken = tokenInfo.accessToken
-        defaultPreferences.tokenExpirationDate = clock.epochSeconds + tokenInfo.expirationDate
+        defaultPreferences.tokenExpirationDate = dateTime.secondsCurrent + tokenInfo.expirationDate
     }
 
     fun saveCredentialsIntoPreferences(

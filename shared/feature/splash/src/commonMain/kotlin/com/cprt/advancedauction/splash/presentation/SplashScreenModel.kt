@@ -3,7 +3,7 @@ package com.cprt.advancedauction.splash.presentation
 import cafe.adriel.voyager.core.model.coroutineScope
 import cafe.adriel.voyager.navigator.Navigator
 import com.cprt.advancedauction.core.screenModel.AAScreenModel
-import com.cprt.advancedauction.core.tools.ScreenProvider
+import com.cprt.advancedauction.navigation.tools.ScreenProvider
 import com.cprt.advancedauction.core.useCase.ResultOf
 import com.cprt.advancedauction.navigation.util.replaceIfPossible
 import com.cprt.advancedauction.splash.domain.useCase.IsNeedToLoginUseCase

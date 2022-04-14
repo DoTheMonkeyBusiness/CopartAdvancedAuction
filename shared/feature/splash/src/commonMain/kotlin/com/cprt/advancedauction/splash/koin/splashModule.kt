@@ -17,6 +17,7 @@ val splashModule = module {
         LoginRepositoryImpl(
             authentication = get(),
             authTokenHolder = get(),
+            dateTime = get(),
         )
     }
     factory {

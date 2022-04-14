@@ -1,17 +1,11 @@
 package com.cprt.advancedauction.auth.domain.model
 
-import kotlinx.datetime.Clock
-
 sealed class UserLoginState(
     open val tokenInfo: TokenInfoModel,
 ) {
-    val isTokenOutdated: Boolean
-        get() {
-            val clock = Clock.System.now()
-            val secondsNow = clock.epochSeconds
-
-            return tokenInfo.expirationDate - secondsNow <= 0
-        }
+    fun isTokenOutdated(
+        secondsNow: Long
+    ): Boolean = tokenInfo.expirationDate - secondsNow <= 0
 
     data class Anon(
         override val tokenInfo: TokenInfoModel,

@@ -22,6 +22,7 @@ val firebaseModule = module {
         AuthUtil(
             defaultPreferences = get(),
             securedPreferences = get(),
+            dateTime = get(),
         )
     }
     factory {

@@ -9,7 +9,7 @@ import cafe.adriel.voyager.navigator.Navigator
 import com.cprt.advancedauction.core.internalNotification.InternalNotificationManager
 import com.cprt.advancedauction.core.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screenModel.AAScreenModel
-import com.cprt.advancedauction.core.tools.ScreenProvider
+import com.cprt.advancedauction.navigation.tools.ScreenProvider
 import com.cprt.advancedauction.core.useCase.ResultOf
 import com.cprt.advancedauction.logIn.domain.useCase.SendResetEmailUseCase
 import com.cprt.advancedauction.logIn.utils.getLoginErrorMessage
