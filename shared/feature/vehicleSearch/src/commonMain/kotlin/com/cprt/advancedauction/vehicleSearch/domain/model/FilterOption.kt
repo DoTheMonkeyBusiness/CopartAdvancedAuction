@@ -21,7 +21,7 @@ internal sealed class FilterOption(
     data class YearRange(
         val range: IntRange
     ) : FilterOption(
-        header = "Model",
+        header = "Year Range",
         textValue = "${range.first}-${range.last}",
     )
 }

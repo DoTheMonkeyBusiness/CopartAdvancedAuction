@@ -9,13 +9,14 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.cprt.advancedauction.core.screenModel.getScreenModel
-import com.cprt.advancedauction.navigation.tools.ForgotPasswordScreen
+import com.cprt.advancedauction.core.utils.AALifecycleEffect
 import com.cprt.advancedauction.foundation.button.AABackButton
 import com.cprt.advancedauction.foundation.button.AAMainButton
 import com.cprt.advancedauction.foundation.spacer.HSpacer
 import com.cprt.advancedauction.logIn.foundation.CommonHeaderBlock
 import com.cprt.advancedauction.logIn.foundation.CommonWindow
 import com.cprt.advancedauction.logIn.foundation.textfield.EmailInputField
+import com.cprt.advancedauction.navigation.tools.ForgotPasswordScreen
 
 class ForgotPasswordScreenUI : ForgotPasswordScreen {
 
@@ -73,7 +74,7 @@ class ForgotPasswordScreenUI : ForgotPasswordScreen {
             onClick = screenModel::onSendEmail,
         )
 
-        LaunchedEffect(Unit) {
+        AALifecycleEffect {
             focusRequester.requestFocus()
         }
     }

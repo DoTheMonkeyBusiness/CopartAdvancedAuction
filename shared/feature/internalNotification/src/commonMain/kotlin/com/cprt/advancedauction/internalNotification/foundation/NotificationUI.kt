@@ -11,8 +11,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +19,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.cprt.advancedauction.core.ScreenSize
 import com.cprt.advancedauction.core.tools.LocalScreenSize
+import com.cprt.advancedauction.core.utils.AALifecycleEffect
 import com.cprt.advancedauction.foundation.AACard
 import com.cprt.advancedauction.internalNotification.domain.model.NotificationModel
 import com.cprt.advancedauction.internalNotification.util.VisibilityHolder
@@ -43,7 +42,7 @@ internal fun ColumnScope.NotificationUI(
     )
 
     key(notificationModel.id) {
-        LaunchedEffect(Unit) {
+        AALifecycleEffect {
             visibilityHolder.updateVisibility()
         }
         AnimatedVisibility(
@@ -80,11 +79,9 @@ private fun ColumnScope.NotificationCard(
             text = text,
             style = MaterialTheme.typography.bodyMedium,
         )
-        DisposableEffect(Unit) {
-            onDispose(
-                onDisposeEffect = onDispose
-            )
-        }
+        AALifecycleEffect(
+            onDestroy = onDispose,
+        )
     }
 }
 
