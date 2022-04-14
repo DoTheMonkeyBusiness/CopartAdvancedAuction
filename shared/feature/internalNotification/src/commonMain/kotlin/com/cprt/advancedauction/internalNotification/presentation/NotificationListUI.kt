@@ -4,12 +4,12 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cprt.advancedauction.core.koin.get
+import com.cprt.advancedauction.core.utils.AALifecycleEffect
 import com.cprt.advancedauction.foundation.spacer.HSpacer
 import com.cprt.advancedauction.internalNotification.foundation.NotificationUI
 
@@ -38,11 +38,10 @@ fun NotificationListUI(
         }
     }
 
-    DisposableEffect(coroutineScope) {
+    AALifecycleEffect(
+        key = coroutineScope,
+        onDestroy = viewModel::onRealiseUI
+    ) {
         viewModel.onBindUI(coroutineScope)
-
-        onDispose {
-            viewModel.onRealiseUI()
-        }
     }
 }

@@ -21,7 +21,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import com.cprt.advancedauction.core.screenModel.getScreenModel
-import com.cprt.advancedauction.navigation.tools.LogInScreen
+import com.cprt.advancedauction.core.utils.AALifecycleEffect
 import com.cprt.advancedauction.foundation.button.AAMainButton
 import com.cprt.advancedauction.foundation.button.AAOutlinedButton
 import com.cprt.advancedauction.foundation.checkbox.AACheckBoxWithText
@@ -31,6 +31,7 @@ import com.cprt.advancedauction.logIn.foundation.CommonHeaderBlock
 import com.cprt.advancedauction.logIn.foundation.CommonWindow
 import com.cprt.advancedauction.logIn.foundation.textfield.EmailInputField
 import com.cprt.advancedauction.logIn.foundation.textfield.PasswordInputField
+import com.cprt.advancedauction.navigation.tools.LogInScreen
 
 class LogInScreenUI : LogInScreen {
 
@@ -125,7 +126,7 @@ class LogInScreenUI : LogInScreen {
             onValueChange = onPasswordChanged,
         )
 
-        LaunchedEffect(Unit) {
+        AALifecycleEffect {
             emailRef.requestFocus()
         }
     }
