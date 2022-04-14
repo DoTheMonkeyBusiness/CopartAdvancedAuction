@@ -1,4 +1,4 @@
-package com.cprt.advancedauction.core.tools
+package com.cprt.advancedauction.navigation.tools
 
 interface ScreenProvider {
 
@@ -13,4 +13,6 @@ interface ScreenProvider {
     val forgotPasswordScreen: ForgotPasswordScreen
 
     val splashScreen: SplashScreen
+
+    val vehicleSearchScreen: VehicleSearchScreen
 }

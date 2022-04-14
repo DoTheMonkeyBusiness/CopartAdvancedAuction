@@ -6,8 +6,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.cprt.advancedauction.theme.icons.AAIcons
-import com.cprt.advancedauction.theme.icons.aaicons.OutlineArrowBack
+import com.cprt.advancedauction.recources.icons.AAIcons
+import com.cprt.advancedauction.recources.icons.aaicons.OutlineArrowBack
 
 @Composable
 fun AABackButton(

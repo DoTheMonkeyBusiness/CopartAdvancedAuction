@@ -15,7 +15,7 @@ import br.com.devsrsouza.svg2compose.VectorType
 import java.io.File
 
 val assetsDir = File("../assets")
-val srcDir = File("../shared/base/theme/src/commonMain/kotlin/com/cprt/advancedauction/theme")
+val srcDir = File("../shared/base/theme/src/commonMain/kotlin/com/cprt/advancedauction/resources")
 
 Svg2Compose.parse(
     applicationIconPackage = "icons",

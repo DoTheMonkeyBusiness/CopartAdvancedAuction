@@ -10,7 +10,7 @@ import com.cprt.advancedauction.auth.domain.model.UserCredentialsModel
 import com.cprt.advancedauction.core.internalNotification.InternalNotificationManager
 import com.cprt.advancedauction.core.resources.appString.LoginErrorString
 import com.cprt.advancedauction.core.screenModel.AAScreenModel
-import com.cprt.advancedauction.core.tools.ScreenProvider
+import com.cprt.advancedauction.navigation.tools.ScreenProvider
 import com.cprt.advancedauction.core.useCase.ResultOf
 import com.cprt.advancedauction.logIn.domain.model.SignInModel
 import com.cprt.advancedauction.logIn.domain.useCase.SignInUseCase

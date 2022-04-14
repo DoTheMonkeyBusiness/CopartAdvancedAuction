@@ -19,7 +19,9 @@ kotlin {
         @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
         val commonMain by getting {
             dependencies {
+                implementation(projects.shared.base.core)
                 implementation(projects.shared.base.foundation)
+                implementation(projects.shared.base.resources)
 
                 implementation(compose.ui)
                 implementation(compose.runtime)

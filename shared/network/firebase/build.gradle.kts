@@ -25,9 +25,9 @@ kotlin {
             dependencies {
                 implementation(projects.shared.base.auth)
                 implementation(projects.shared.base.core)
+                implementation(projects.shared.base.dateTime)
 
                 implementation(libs.koin.core)
-                implementation(libs.kotlin.datetime)
                 implementation(libs.kotlin.coroutines.core)
                 implementation(libs.kotlin.serialization.json)
                 implementation(libs.ktor.auth)
@@ -35,7 +35,6 @@ kotlin {
                 implementation(libs.ktor.core)
                 implementation(libs.ktor.cio)
                 implementation(libs.ktor.json)
-                implementation(libs.ktor.serialization)
                 implementation(libs.ktor.logging)
             }
         }

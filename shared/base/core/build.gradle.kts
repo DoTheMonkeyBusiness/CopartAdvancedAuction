@@ -19,8 +19,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(compose.ui)
-                implementation(libs.voyager.navigator)
                 implementation(libs.koin.core)
+                implementation(libs.voyager.navigator)
             }
         }
         val commonTest by getting

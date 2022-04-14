@@ -6,11 +6,14 @@ import androidx.compose.material.icons.outlined.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import com.cprt.advancedauction.navigation.tab.NavigationTab
 
-object AccountSettingsTab : NavigationTab {
+object AccountSettingsTab : NavigationTab() {
+
+    override val screen: Screen
+        get() = AccountSettingsScreen()
 
     @Composable
     override fun getOptions(isSelected: Boolean): TabOptions {
@@ -24,10 +27,5 @@ object AccountSettingsTab : NavigationTab {
                 icon = icon
             )
         }
-    }
-
-    @Composable
-    override fun Content() {
-        Navigator(AccountSettingsScreen())
     }
 }

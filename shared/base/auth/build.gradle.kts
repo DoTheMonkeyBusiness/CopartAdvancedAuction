@@ -18,7 +18,6 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libs.koin.core)
-                implementation(libs.kotlin.datetime)
                 implementation(libs.kotlin.coroutines.core)
             }
         }

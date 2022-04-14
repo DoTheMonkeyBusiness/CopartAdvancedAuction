@@ -1,14 +1,23 @@
 package com.cprt.advancedauction.navigation.tab
 
 import androidx.compose.runtime.Composable
+import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import com.cprt.advancedauction.navigation.navigator.AANavigator
 
-interface NavigationTab : Tab {
+abstract class NavigationTab : Tab {
 
-    override val options: TabOptions
+    final override val options: TabOptions
         @Composable get() = getOptions(false)
 
+    abstract val screen: Screen
+
     @Composable
-    fun getOptions(isSelected: Boolean): TabOptions
+    abstract fun getOptions(isSelected: Boolean): TabOptions
+
+    @Composable
+    final override fun Content() {
+        AANavigator(screen)
+    }
 }

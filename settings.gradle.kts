@@ -21,6 +21,7 @@ include(":shared:common")
 
 include(":shared:base:auth")
 include(":shared:base:core")
+include(":shared:base:dateTime")
 include(":shared:base:foundation")
 include(":shared:base:navigation")
 include(":shared:base:resources")
@@ -35,6 +36,7 @@ include(":shared:feature:main")
 include(":shared:feature:onBoarding")
 include(":shared:feature:splash")
 include(":shared:feature:vehicleFinder")
+include(":shared:feature:vehicleSearch")
 
 include(":shared:network:firebase")
 
