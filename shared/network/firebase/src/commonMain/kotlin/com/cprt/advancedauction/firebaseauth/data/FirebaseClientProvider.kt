@@ -25,6 +25,7 @@ internal class FirebaseClientProvider(
 ) {
 
     fun getHttpClient() = HttpClient(CIO) {
+        expectSuccess = true
         install(ContentNegotiation) {
             json(json)
         }
